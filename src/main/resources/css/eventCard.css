@@ -1,0 +1,122 @@
+.event-card {
+  float: left;
+  padding: 0 1.7rem;
+  width: 100%;
+}
+
+.event-card .menu-content {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.event-card .menu-content li {
+  display: inline-block;
+}
+
+.event-card .menu-content a {
+  color: white;
+}
+
+.event-card .menu-content span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'Open Sans';
+  transform: translate(-50%, 0);
+}
+
+.event-card .wrapper {
+  background-color: white;
+  min-height: 540px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+
+.event-card .wrapper:hover .data {
+  transform: translateY(0);
+}
+
+.event-card .data {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(calc(140px + 1em));
+  transition: transform 0.3s;
+}
+
+.event-card .data .content {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+}
+
+.event-card .author {
+  font-size: 12px;
+}
+
+.event-card .title {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.event-card .text {
+  height: 100%;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.event-card input[type='checkbox'] {
+  display: none;
+}
+
+.event-card input[type='checkbox']:checked + .menu-content {
+  transform: translateY(-60px);
+}
+
+
+.teaser-card {
+  display: flex;
+  align-items: center;
+  background-color: white; /* Light grey background */
+  border-radius: 2px; /* Rounded corners */
+  overflow: hidden; /* Ensures the image does not overflow the card's rounded corners */
+  border: 0px solid #ccc; /* Adds a light grey border */
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+.teaser-card .card-image {
+  display: flex; /* Enables flexbox properties */
+  flex: 1 1 auto; /* Do not grow or shrink, but use auto basis */
+  height: 100%; /* Make the image container take full height of the parent */
+}
+
+.teaser-card .card-image img {
+  width: 100%; /* Make the image take full width of its container */
+  height: 100%; /* Make the image take full height of its container */
+  object-fit: cover; /* Cover the area without losing aspect ratio */
+  object-position: 50% 50%;
+
+}
+
+.teaser-card .card-content {
+  padding: 10px; /* Padding around content */
+}
+
+.teaser-card .card-content .card-title,
+.teaser-card .card-content .card-date {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.teaser-card .card-content .card-title {
+  font-size: 16px; /* Larger font size for the title */
+  font-weight: bold; /* Bold font weight for the title */
+}
+
+.teaser-card .card-content .card-date {
+  font-size: 14px; /* Slightly smaller font size for the date */
+}

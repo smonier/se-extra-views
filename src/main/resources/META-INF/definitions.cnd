@@ -1,0 +1,24 @@
+<mix = 'http://www.jcp.org/jcr/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<seaddonsnt = 'http://www.jahia.org/seaddons/nt/1.0'>
+<seaddonsmix = 'http://www.jahia.org/seaddons/mix/1.0'>
+
+[seaddonsmix:seUtilsEditorialComponents] > jmix:droppableContent, jmix:editorialContent mixin
+
+
+[seaddonsnt:event] > jnt:content, jmix:editorialContent, mix:title, jmix:structuredContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
+ - startDate (date) facetable
+ - endDate (date) facetable
+ - location (string) i18n facetable
+ - eventsType (string, choicelist[resourceBundle]) facetable  < gala,ceremony,seminary,party,retreat,meeting,consumerShow,roadShow,conference,show,pressConference
+ - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
+ - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
+ - image (weakreference, picker[type='image']) < 'jmix:image'
+
+[seaddonsnt:lastEvent] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
+ - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - maxItems (long) = 3 indexed=no
+ - folder (weakreference, picker[type='contentfolder'])
+ - filter (weakreference, category[autoSelectParent=false])
+ - j:subNodesView (string, choicelist[templates=dsgouvnt:content,resourceBundle,image]) nofulltext itemtype = layout
