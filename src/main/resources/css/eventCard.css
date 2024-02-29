@@ -1,6 +1,5 @@
 .event-card {
   float: left;
-  padding: 0 1.7rem;
   width: 100%;
 }
 
@@ -91,7 +90,6 @@
 .teaser-card .card-image {
   display: flex; /* Enables flexbox properties */
   flex: 1 1 auto; /* Do not grow or shrink, but use auto basis */
-  height: 100%; /* Make the image container take full height of the parent */
 }
 
 .teaser-card .card-image img {
@@ -119,4 +117,12 @@
 
 .teaser-card .card-content .card-date {
   font-size: 14px; /* Slightly smaller font size for the date */
+}
+
+.lastEvent .col-12 {
+  padding: 0 !important;
+}
+
+.lastEvent .col-md-8 {
+  padding-left: 0 !important;
 }

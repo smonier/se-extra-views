@@ -149,16 +149,16 @@
 </style>
 
 
-<div class="event-card card-${currentNode.identifier}">
+<div class="event-card card-${currentNode.identifier} item">
     <div class="wrapper">
         <div class="date">
             <span class="day"><fmt:formatDate pattern="dd" value="${startDate}"/></span>
-            <span class="month"><fmt:formatDate pattern="MM" value="${startDate}"/></span>
+            <span class="month"><fmt:formatDate pattern="MMM" value="${startDate}"/></span>
             <span class="year"><fmt:formatDate pattern="yyyy" value="${startDate}"/></span>
             <c:if test="${not empty endDate}">
                 <span><fmt:message key='label.eventDate.to'/></span>
                 <span class="day"><fmt:formatDate pattern="dd" value="${endDate}"/></span>
-                <span class="month"><fmt:formatDate pattern="MM" value="${endDate}"/></span>
+                <span class="month"><fmt:formatDate pattern="MMM" value="${endDate}"/></span>
                 <span class="year"><fmt:formatDate pattern="yyyy"
                                                    value="${endDate}"/></span>
             </c:if>

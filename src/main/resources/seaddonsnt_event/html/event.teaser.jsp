@@ -18,6 +18,8 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
+<template:addResources type="css" resources="eventCard.css"/>
+
 <c:set var="startDate" value="${currentNode.properties['startDate'].time}"/>
 <c:set var="endDate" value="${currentNode.properties['endDate'].time}"/>
 <c:set var="location" value="${currentNode.properties['location'].string}"/>
@@ -29,27 +31,16 @@
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 
 
-<div class="teaser-card mb-3">
-    <div class="card-image">
-        <img src="${image.url}" alt="Image Description">
-    </div>
-    <div class="card-content">
-        <h4 class="card-title">${title}</h4>
-        <p class="card-date"><fmt:formatDate pattern="dd/MM/yyyy" value="${startDate}"/>
-        </p>
-    </div>
-</div>
-
-<div class="teaser-card mb-3" style="max-width: 540px;">
+<div class="teaser-card mb-2">
     <div class="row g-0">
         <div class="card-image col-md-4">
-            <img src="${image.url}" class="img-fluid rounded-start" alt="...">
+            <img src="${image.url}" class="img-fluid rounded-start" alt="${image.name}">
         </div>
         <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">${title}</h5>
-                <p class="card-text">${functions:abbreviate(functions:removeHtmlTags(teaser),100,150,'...')}</p>
-                <p class="card-text"><small class="text-muted"><fmt:formatDate pattern="dd/MM/yyyy" value="${startDate}"/></small></p>
+            <div class="card-content">
+                <h6 class="card-title"><a href="#">${title}</a></h6>
+                <!-- <p class="card-text">${functions:abbreviate(functions:removeHtmlTags(teaser),100,150,'...')}</p> -->
+                <p class="card-text text-right bottom-0 end-0 m-0"><small class="text-muted"><fmt:formatDate pattern="dd MMM yyyy" value="${startDate}"/></small></p>
             </div>
         </div>
     </div>

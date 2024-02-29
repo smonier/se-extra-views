@@ -24,16 +24,15 @@
         <p>${moduleMap.emptyListMessage}</p>
     </c:when>
     <c:otherwise>
-        <div
-                class="paragraph paragraph--type--ds-cartes paragraph--view-mode--default fr-grid-row fr-grid-row--gutters">
-            <div class="fr-col-12">
-                <div class="fr-grid-row fr-grid-row--middle ds-rangee-de--entete title-only">
+        <div class="container">
+            <div class="col-12">
+                <div class="row">
                     <h2>${titleEscaped}</h2>
                         ${teaser}
                 </div>
-                <div class="fr-grid-row fr-grid-row--gutters ds-rangee-de--contenu">
+                <div class="row lastEvent">
                     <c:forEach items="${result.nodes}" var="node">
-                        <div class="fr-col-12 fr-col-md-4 mb-3">
+                        <div class="col-12 mb-3">
                             <template:module view="${subNodeView}" node="${node}" />
                         </div>
                     </c:forEach>
