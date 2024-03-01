@@ -149,7 +149,7 @@
 </style>
 
 
-<div class="event-card card-${currentNode.identifier} item">
+<div class="event-card card-${currentNode.identifier}">
     <div class="wrapper">
         <div class="date">
             <span class="day"><fmt:formatDate pattern="dd" value="${startDate}"/></span>

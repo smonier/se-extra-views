@@ -43,7 +43,9 @@
                     <div class="col-12">
                         <div id="${sliderId}" class="owl-carousel">
                             <c:forEach items="${result.nodes}" var="node">
+                                <div class="item px-1">
                                 <template:module view="${subNodeView}" node="${node}" editable="false"/>
+                                </div>
                             </c:forEach>
                         </div>
                     </div>

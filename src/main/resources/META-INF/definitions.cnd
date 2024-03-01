@@ -25,3 +25,20 @@
 
  [seaddonsnt:headingFromPage] > jnt:content, timix:content, seaddonsmix:seUtilsEditorialComponents
 
+[seaddonsnt:foodMenu] > jnt:content, jmix:editorialContent, mix:title, jmix:structuredContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
+ - title (string)
+ - date (date) facetable
+ - course (string, choicelist[resourceBundle]) < 'starter','main-course', 'dessert'
+ - type (string, choicelist[resourceBundle]) < 'veggie','meat', 'fish', 'other'
+ - image (weakreference, picker[type='image']) < 'jmix:image'
+
+[seaddonsnt:menuList] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
+ - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - maxItems (long) = 3 indexed=no
+ - folder (weakreference, picker[type='contentfolder'])
+ - filter (date)
+ - j:subNodesView (string, choicelist[templates=dsgouvnt:content,resourceBundle,image]) nofulltext itemtype = layout
+
+[seaddonsnt:calendar] > jnt:content, seaddonsmix:seUtilsEditorialComponents
+ - nbDate (long) = 15 indexed=no
+

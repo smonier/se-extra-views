@@ -1,0 +1,17 @@
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+    text-align: center;
+    grid-gap: 10px;
+  }
+  .day {
+    padding: 10px;
+/*     background: #f0f0f0;
+ */    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  .day:hover {
+    background: var(--primary);
+    color: white;
+  }
+  

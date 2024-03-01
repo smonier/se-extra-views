@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>dsgouvfr</short-name>
+    <uri>https://www.se-extra-views.jahia.com/jahia/tags/1.0</uri>
+
+    <function>
+        <name>loadSvgContent</name>
+        <function-class>org.jahia.se.modules.seextraviews.taglibs.JspFunctions</function-class>
+        <function-signature>java.lang.String loadSvgContent(org.jahia.services.content.JCRNodeWrapper)</function-signature>
+    </function>
+
+    <function>
+        <name>formatDateStringForJCR</name>
+        <function-class>org.jahia.se.modules.seextraviews.taglibs.JspFunctions</function-class>
+        <function-signature>java.lang.String formatDateStringForJCR(java.lang.String)</function-signature>
+    </function>
+</taglib>
