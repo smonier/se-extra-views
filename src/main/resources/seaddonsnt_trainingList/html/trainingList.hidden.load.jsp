@@ -22,15 +22,16 @@
     <c:set var="dateFilter" value="${param.date}"/>
 </c:if>
 
+
 <c:if test="${not empty dateFilter}">
     <utility:logger level="INFO" value="dateFilter : ${dateFilter}"/>
     <c:set var="formatedDate" value="${seutils:formatDateStringForJCR(dateFilter)}"/>
     <c:set var="formatedDatePlusOne" value="${seutils:addOneDay(formatedDate)}"/>
     <utility:logger level="INFO" value="formatedDate : ${formatedDate}"/>
-    <c:set var="queryConstraint" value="and menuItem.[date]>='${formatedDate}' and menuItem.[date]<'${formatedDatePlusOne}'"/>
+    <c:set var="queryConstraint" value="and trainingSession.[sessionDate]>='${formatedDate}' and trainingSession.[sessionDate]<'${formatedDatePlusOne}'"/>
 </c:if>
 
-<c:set var="lastContentsStatement" value="select * from [seaddonsnt:foodMenu] as menuItem where ISDESCENDANTNODE(menuItem,'${folderPath}') ${queryConstraint} order by menuItem.[date] asc"/>
+<c:set var="lastContentsStatement" value="select * from [seaddonsnt:trainingSession] as trainingSession where ISDESCENDANTNODE(trainingSession,'${folderPath}') ${queryConstraint} order by trainingSession.[sessionDate] asc"/>
 <utility:logger level="INFO" value="lastContentsStatement : ${lastContentsStatement}"/>
 <utility:logger level="INFO" value="maxItems : ${maxItems}"/>
 

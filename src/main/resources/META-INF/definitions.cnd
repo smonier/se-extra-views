@@ -21,7 +21,7 @@
  - maxItems (long) = 3 indexed=no
  - folder (weakreference, picker[type='contentfolder'])
  - filter (weakreference, category[autoSelectParent=false])
- - j:subNodesView (string, choicelist[templates=dsgouvnt:content,resourceBundle,image]) nofulltext itemtype = layout
+ - j:subNodesView (string, choicelist[templates=seaddonsnt:event,resourceBundle,image]) nofulltext itemtype = layout
 
  [seaddonsnt:headingFromPage] > jnt:content, timix:content, seaddonsmix:seUtilsEditorialComponents
 
@@ -37,8 +37,31 @@
  - maxItems (long) = 3 indexed=no
  - folder (weakreference, picker[type='contentfolder'])
  - filter (date)
- - j:subNodesView (string, choicelist[templates=dsgouvnt:content,resourceBundle,image]) nofulltext itemtype = layout
+ - j:subNodesView (string, choicelist[templates=seaddonsnt:foodMenu,resourceBundle,image]) nofulltext itemtype = layout
 
 [seaddonsnt:calendar] > jnt:content, seaddonsmix:seUtilsEditorialComponents
  - nbDate (long) = 15 indexed=no
 
+[seaddonsnt:trainingSession] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+ - sessionTitle (string) internationalized mandatory
+ - sessionDescription (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - sessionObjective (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - sessionDate (date)  
+ - startTime (string)  
+ - endTime (string)  
+ - location (string)
+ - levelOfExpertise (string, choicelist[resourceBundle]) < 'Beginner','Intermediate','Advanced','Expert'
+ - instructorName (string)
+ - materialsLink (string) = "https://"
+
+[seaddonsnt:trainingList] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
+ - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - maxItems (long) = 3 indexed=no
+ - folder (weakreference, picker[type='contentfolder'])
+ - filter (date)
+ - j:subNodesView (string, choicelist[templates=seaddonsnt:trainingSession,resourceBundle,image]) nofulltext itemtype = layout
+
+[seaddonsnt:externalVideo] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+ - videoService(string, choicelist[resourceBundle]) = 'youtube' mandatory < youtube, vimeo, wistia
+ - videoId (string) i18n
+ - videoPoster (weakreference, picker[type='image']) < 'jmix:image'

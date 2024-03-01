@@ -1,0 +1,40 @@
+.video-thumbnail {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* .video-thumbnail::before {
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    content: "\f144";
+    font-family: "Font Awesome 5 Free";
+    font-size: 60px;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+.video-thumbnail:hover::before {
+    color: #eee;
+    content: "\f144";
+    font-family: "Font Awesome 5 Free";
+    font-size: 60px;
+    color: #fff;
+} */
+
+.video-thumbnail .icon {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5);
+    color: #FFF; /* Default color, adjust as needed */
+}
+
+.video-thumbnail:hover .icon {
+    color: var(--primary);
+}

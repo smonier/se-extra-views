@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Calendar;
 
 public final class JspFunctions {
     private static final Logger logger = LoggerFactory.getLogger(JspFunctions.class);
@@ -75,4 +76,24 @@ public final class JspFunctions {
             return null; // Or handle this more gracefully
         }
     }
+
+    public static String addOneDay(String dateString) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC")); // Ensure parsing in UTC
+        try {
+            Date date = sdf.parse(dateString);
+
+            // Add one day
+            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+            calendar.setTime(date);
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+            // Return the new date as a string
+            return sdf.format(calendar.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null; // Or handle this more gracefully depending on your requirements
+        }
+    }
+
 }
