@@ -65,3 +65,7 @@
  - videoService(string, choicelist[resourceBundle]) = 'youtube' mandatory < youtube, vimeo, wistia
  - videoId (string) i18n
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
+
+ [seaddonsnt:internalVideo] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+ - video (weakreference, picker[type='file']) internationalized
+ - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
