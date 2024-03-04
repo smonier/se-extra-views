@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <c:forEach items="${result.nodes}" var="node">
-                        <div class="col-md-4">
+                        <div class="col-md-4 d-flex align-items-stretch mb-3">
                         <template:module view="${subNodeView}" node="${node}"/>
                         </div>
                     </c:forEach>

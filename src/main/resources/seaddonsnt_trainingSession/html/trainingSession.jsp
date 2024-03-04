@@ -46,9 +46,9 @@
         <c:set var="badgeClass" value="badge badge-secondary" />
     </c:otherwise>
 </c:choose>
-<div class="card">
+<div class="card training-card d-flex flex-column">
     <div class="card-body">
-      <h5 class="card-title">${sessionTitle}</h5>
+      <h3 class="card-title">${sessionTitle}</h3>
       <h6 class="card-subtitle mb-2 text-muted">${sessionObjective}</h6>
       <p class="card-text">${sessionDescription}</p>
       <hr>
@@ -57,9 +57,11 @@
         </div>
       <p class="card-text"><span><fmt:formatDate pattern="dd MMM yyyy" value="${sessionDate}"/>
         &nbsp;<fmt:message key='label.time.from'/>&nbsp; ${startTime} &nbsp;<fmt:message key='label.time.to'/> &nbsp;${endTime}</span></p>
-       <p class="card-text"><fmt:message key='seaddonsnt_trainingSession.location'/>: ${location}</p>
-       <p class="card-text"><fmt:message key='seaddonsnt_trainingSession.instructorName'/>: ${instructorName}</p>
+       <p class="card-text"><strong><fmt:message key='seaddonsnt_trainingSession.location'/></strong>: ${location}</p>
+       <p class="card-text"><strong><fmt:message key='seaddonsnt_trainingSession.instructorName'/></strong>: ${instructorName}</p>
         <br/>
-      <a href="${materialsLink}"  class="btn btn-primary"><fmt:message key='label.trainingSupports'/></a>
+        <div class="card-text mt-auto">
+            <a href="${materialsLink}"  class="btn btn-primary btn-bottom"><fmt:message key='label.trainingSupports'/></a>
+        </div>
     </div>
   </div>

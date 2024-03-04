@@ -18,7 +18,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="css" resources="eventCard.css"/>
+<template:addResources type="css" resources="foodCard.css"/>
 
 <c:set var="date" value="${currentNode.properties['date'].time}"/>
 <c:set var="title" value="${currentNode.properties['title'].string}"/>

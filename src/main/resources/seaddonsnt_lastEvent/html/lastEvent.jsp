@@ -32,7 +32,7 @@
                 </div>
                 <div class="row lastEvent">
                     <c:forEach items="${result.nodes}" var="node">
-                        <div class="col-12 mb-3">
+                        <div class="col-12  d-flex align-items-stretch mb-3">
                             <template:module view="${subNodeView}" node="${node}" />
                         </div>
                     </c:forEach>
