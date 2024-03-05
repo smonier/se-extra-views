@@ -238,8 +238,9 @@
 .btn-bottom {
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%; /* Stretch the button across the card width */
+  left: 10%;
+  width: 80%; /* Stretch the button across the card width */
+  margin-bottom: 10px;
 }
 
 .training-card  {

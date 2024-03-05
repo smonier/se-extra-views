@@ -1,6 +1,7 @@
 <mix = 'http://www.jcp.org/jcr/mix/1.0'>
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<seumix = 'http://modules.se.jahia.org/se-utils/mix/1.0'>
 <seaddonsnt = 'http://www.jahia.org/seaddons/nt/1.0'>
 <seaddonsmix = 'http://www.jahia.org/seaddons/mix/1.0'>
 
@@ -42,7 +43,7 @@
 [seaddonsnt:calendar] > jnt:content, seaddonsmix:seUtilsEditorialComponents
  - nbDate (long) = 15 indexed=no
 
-[seaddonsnt:trainingSession] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:trainingSession] > jnt:content, mix:title, seumix:linkTo, seaddonsmix:seUtilsEditorialComponents
  - sessionTitle (string) internationalized mandatory
  - sessionDescription (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
  - sessionObjective (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
@@ -52,6 +53,7 @@
  - location (string)
  - levelOfExpertise (string, choicelist[resourceBundle]) < 'Beginner','Intermediate','Advanced','Expert'
  - instructorName (string)
+ - buttonLabel (string) internationalized
  - materialsLink (string) = "https://"
 
 [seaddonsnt:trainingList] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
