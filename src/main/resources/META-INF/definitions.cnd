@@ -54,7 +54,6 @@
  - levelOfExpertise (string, choicelist[resourceBundle]) < 'Beginner','Intermediate','Advanced','Expert'
  - instructorName (string)
  - buttonLabel (string) internationalized
- - materialsLink (string) = "https://"
 
 [seaddonsnt:trainingList] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
  - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
@@ -71,3 +70,11 @@
  [seaddonsnt:internalVideo] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
  - video (weakreference, picker[type='file']) internationalized
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
+
+[seaddonsnt:sharingToSocial] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+- teaser (string) internationalized
+- facebookLink (boolean)
+- twitterLink (boolean)
+- linkedin (boolean)
+- mailTo (boolean)
+- copyToClipboard (boolean)
