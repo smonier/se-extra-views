@@ -74,6 +74,9 @@
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
  - videoTeaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
 
+[seaddonsnt:videoGallery] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+ + * (seaddonsnt:internalVideo)
+ + * (seaddonsnt:externalVideo)
 
 [seaddonsnt:sharingToSocial] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
 - teaser (string) internationalized

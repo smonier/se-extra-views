@@ -1,0 +1,19 @@
+#sync1 {
+.owl-video-wrapper {
+    height: 300px;
+}
+}
+
+#sync2 {
+    width:100%;
+.owl-video-wrapper {
+    height: 150px;
+}
+.owl-video-play-icon {
+//background-size:60%;
+    display:none;
+}
+.owl-video-tn {
+    cursor: pointer;
+}
+}
