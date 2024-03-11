@@ -14,16 +14,9 @@
 
 <c:set var="imageNode" value="${currentNode.properties['image'].node}"/>
 <template:addCacheDependency node="${imageNode}"/>
-<template:module node="${imageNode}" view="hidden.getURL" var="imageURL" editable="false" templateType="txt">
-    <template:param name="width" value="${not empty currentResource.moduleParams.width ? currentResource.moduleParams.width : '2000'}"/>
-    <template:param name="height" value="${currentResource.moduleParams.mediaHeight}"/>
-    <template:param name="scale" value="${currentResource.moduleParams.mediaScale}"/>
-    <template:param name="quality" value="${currentResource.moduleParams.mediaQuality}"/>
-</template:module>
-
 
 <div class="inner-page">
-    <div class="slider-item" style="background-image: url('${imageURL}');">
+    <div class="slider-item" style="background-image: url('${imageNode.url}');">
         <div class="container">
             <div class="row slider-text align-items-center justify-content-center">
                 <div class="col-md-8 text-center col-sm-12 pt-5 element-animate">
