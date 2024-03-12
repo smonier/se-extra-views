@@ -78,3 +78,12 @@
 - linkedin (boolean)
 - mailTo (boolean)
 - copyToClipboard (boolean)
+
+[seaddonsnt:tile] > jnt:content, seaddonsmix:seUtilsEditorialComponents, seumix:linkTo, mix:title
+ - jcr:title (string) i18n primary mandatory
+ - description (string, textarea) i18n
+ - detail (string) i18n
+
+ [seaddonsmix:withPictogram] mixin
+ extends = seaddonsnt:tile
+ - pictoPicker (weakreference, picker[type='image']) mandatory < 'jmix:image'

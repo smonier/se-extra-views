@@ -2,12 +2,12 @@
   "label": {
     "picto": {
       "picker": {
-        "title": "Pick a pictogram"
+        "title": "Selectionner un pictogramme"
       }
     },
     "icon": {
       "picker": {
-        "title": "Pick an icon"
+        "title": "Selectionner un icon"
       }
     }
   }

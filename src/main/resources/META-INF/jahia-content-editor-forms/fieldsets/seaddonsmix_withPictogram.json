@@ -1,0 +1,35 @@
+{
+    "name": "seaddonsmix:withPictogram",
+    "priority": 1.1,
+    "rank": 2.0,
+    "fields": [
+        {
+            "name": "pictoPicker",
+            "selectorType": "Picker",
+            "selectorOptionsMap": {
+                "type":"file",
+                "accordionItem": {
+                    "picker-media": {
+                        "label":"Pictogrammes",
+                        "rootPath": "/sites/{site}/files/utility/pictograms",
+                        "treeConfig": {
+                            "hideRoot": false
+                        }
+                    }
+                },
+                "pickerConfig": {
+                    "selectableTypesTable": ["jmix:image"],
+                    "pickerDialog": {
+                        "displaySiteSwitcher": false,
+                        "displayTree": true,
+                        "dialogTitle": "design-system-gouv-fr:label.picto.picker.title",
+                        "displaySearch": true
+                    },
+                    "pickerTable": {
+                        "columns": ["publicationStatus", "name", "type", "lastModified"]
+                    }
+                }
+            }
+        }
+    ]
+}
