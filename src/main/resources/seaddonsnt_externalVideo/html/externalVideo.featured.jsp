@@ -18,29 +18,24 @@
 </c:if>
 
 
-<c:set var="video" value="${currentNode.properties['video'].node}"/>
+<c:set var="videoSource" value="${currentNode.properties['videoService'].string}"/>
+<c:set var="videoId" value="${currentNode.properties['videoId'].string}"/>
 <c:set var="videoPoster" value="${currentNode.properties['videoPoster'].node}"/>
 <c:set var="videoTeaser" value="${currentNode.properties['videoTeaser'].string}"/>
+<c:set var="featuredVideo" value="${currentNode.properties['featuredVideo'].boolean}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 
 <c:choose>
-    <c:when test="${renderContext.editMode}">
-        <div class="card j-owl-carousel-card-edit">
-            <img class="card-img-top" src="${videoPoster.url}" alt="Card image cap">
-            <div class="card-body">
-                    ${title}
-                    <%--                <h5 class="card-title">Card title</h5>--%>
-                    <%--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
-                    <%--                <a href="#" class="btn btn-primary">Go somewhere</a>--%>
-            </div>
-        </div>
+    <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
+        <c:set var="videoURL" value="https://player.vimeo.com/video/${videoId}"/>
+    </c:when>
+    <c:when test="${fn:toLowerCase(videoSource) == 'wistia'}">
+        <c:set var="videoURL" value="https://fast.wistia.net/embed/iframe/${videoId}"/>
     </c:when>
     <c:otherwise>
-        <div class="item video-thumbnail" data-video-type="self-hosted" data-video="${video.url}">
-            <i class="fas fa-play icon"></i><img src="${videoPoster.url}" alt="${title}">
-            <div class="overlay">${title}</div>
-        </div>
+        <c:set var="videoURL" value="https://www.youtube.com/embed/${videoId}"/>
     </c:otherwise>
 </c:choose>
 
+<iframe src="${videoURL}" style="width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';

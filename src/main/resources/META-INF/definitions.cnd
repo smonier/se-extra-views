@@ -67,12 +67,14 @@
  - videoId (string) i18n
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
  - videoTeaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - featuredVideo (boolean)
 
 
  [seaddonsnt:internalVideo] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
  - video (weakreference, picker[type='file']) internationalized
  - videoPoster (weakreference, picker[type='image']) < 'jmix:image'
  - videoTeaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - featuredVideo (boolean)
 
 [seaddonsnt:videoGallery] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
  + * (seaddonsnt:internalVideo)

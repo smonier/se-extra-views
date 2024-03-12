@@ -15,6 +15,7 @@
 
 <template:addResources type="javascript" resources="videoGallery.js"/>
 <template:addResources type="css" resources="videoGallery.css"/>
+<template:addResources type="css" resources="videoButton.css"/>
 
 
 <c:if test="${renderContext.editMode}">
@@ -28,19 +29,32 @@
 
 
 <!-- Main video/iframe placeholder -->
-<div class="video-placeholder" style="width: 100%; height: 500px; background: #000;">
+<div class="video-placeholder">
+    <c:forEach items="${videos}" var="video" varStatus="item">
+        <c:set var="featuredVideo"
+               value="${video.properties['featuredVideo'].boolean}" />
+        <c:if test="${featuredVideo}">
+            <template:module node="${video}" view="featured" editable="true"/>
+        </c:if>
+    </c:forEach>
     <!-- Initially empty, will be filled based on selection -->
 </div>
 
 <!-- Thumbnails carousel -->
-<div class="owl-carousel owl-theme">
-    <c:forEach items="${videos}" var="video" varStatus="item">
+<c:choose>
+    <c:when test="${renderContext.editMode}">
+        <c:forEach items="${videos}" var="video" varStatus="item">
             <template:module node="${video}" view="thumbnail" editable="true"/>
-    </c:forEach>
-</div>
-
-
-
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+        <div class="owl-carousel owl-theme">
+            <c:forEach items="${videos}" var="video" varStatus="item">
+                <template:module node="${video}" view="thumbnail" editable="true"/>
+            </c:forEach>
+        </div>
+    </c:otherwise>
+</c:choose>
 
 
 <c:if test="${renderContext.editMode}">
@@ -52,28 +66,28 @@
     <template:module path="*"/>
 </c:if>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $(".owl-carousel").owlCarousel({
             // Owl Carousel settings
             loop: true,
             margin: 10,
             nav: true,
             responsive: {
-                0: { items: 1 },
-                600: { items: 3 },
-                1000: { items: 4 }
+                0: {items: 1},
+                600: {items: 3},
+                1000: {items: 4}
             }
         });
 
-        $('.owl-carousel .item').click(function(){
+        $('.owl-carousel .item').click(function () {
             const videoType = $(this).data('video-type');
             const videoSrc = $(this).data('video');
             let playerHtml = '';
 
-            if(videoType === 'self-hosted') {
+            if (videoType === 'self-hosted') {
                 playerHtml = '<video controls style="width: 100%; height: 100%;"><source src="' + videoSrc + '" type="video/mp4">Your browser does not support the video tag.</video>';
             } else { // YouTube or Vimeo
-                playerHtml = '<iframe src="' + videoSrc +'" style="width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                playerHtml = '<iframe src="' + videoSrc + '" style="width: 100%; height: 100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             }
 
             $('.video-placeholder').html(playerHtml);
