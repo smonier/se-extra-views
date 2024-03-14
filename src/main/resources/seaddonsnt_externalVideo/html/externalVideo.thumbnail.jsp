@@ -24,6 +24,7 @@
 <c:set var="videoTeaser" value="${currentNode.properties['videoTeaser'].string}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
+
 <c:choose>
     <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
         <c:set var="videoURL" value="https://player.vimeo.com/video/${videoId}"/>
@@ -35,20 +36,49 @@
         <c:set var="videoURL" value="https://www.youtube.com/embed/${videoId}"/>
     </c:otherwise>
 </c:choose>
+
 <c:choose>
     <c:when test="${renderContext.editMode}">
         <div class="card j-owl-carousel-card-edit">
-            <img class="card-img-top" src="${videoPoster.url}" alt="Card image cap">
+            <c:choose>
+                <c:when test="${not empty image.url}">
+                         <img class="card-img-top" src="${videoPoster.url}" alt="Card thumbnail" itemprop="thumbnail">
+                </c:when>
+                <c:otherwise>
+                    <c:choose>
+                        <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
+                            <img class="card-img-top"
+                                 srcset="https://vumbnail.com/${videoId}.jpg 640w, https://vumbnail.com/${videoId}_large.jpg 640w, https://vumbnail.com/${videoId}_medium.jpg 200w, https://vumbnail.com/${videoId}_small.jpg 100w"
+                                 sizes="(max-width: 640px) 100vw, 640px"
+                                 src="https://vumbnail.com/${videoId}.jpg"
+                                 alt="${title}"/>
+                        </c:when>
+                        <c:when test="${fn:toLowerCase(videoSource) == 'wistia'}">
+                            <img class="card-img-top"
+                                 data-src="${videoId}"
+                                 id="wistia-thumbnail-${videoId}"
+                                 alt="${title}"/>
+
+                        </c:when>
+                        <c:otherwise>
+                            <img class="card-img-top"
+                                 src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg"
+                                 alt="${title}"/>
+                        </c:otherwise>
+                    </c:choose>
+                </c:otherwise>
+            </c:choose>
             <div class="card-body">
                     ${title}
-                    <%--                <h5 class="card-title">Card title</h5>--%>
-                    <%--                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>--%>
-                    <%--                <a href="#" class="btn btn-primary">Go somewhere</a>--%>
             </div>
         </div>
     </c:when>
     <c:otherwise>
-        <div class="item video-thumbnail" data-video-type="${fn:toLowerCase(videoSource)}" data-video="${videoURL}">
+        <div class="item video-thumbnail" 
+             data-video-type="${fn:toLowerCase(videoSource)}" 
+             data-video="${videoURL}" 
+             data-video-title="${title}"
+             data-video-desc="${fn:escapeXml(videoTeaser)}">
             <i class="fas fa-play icon"></i>
             <c:choose>
                 <c:when test="${not empty image.url}">

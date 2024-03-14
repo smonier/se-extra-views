@@ -11,7 +11,7 @@
                 "accordionItem": {
                     "picker-media": {
                         "label":"Pictogrammes",
-                        "rootPath": "/sites/{site}/files/utility/pictograms",
+                        "rootPath": "/sites/ehess-internet/files/utility/pictograms",
                         "treeConfig": {
                             "hideRoot": false
                         }
