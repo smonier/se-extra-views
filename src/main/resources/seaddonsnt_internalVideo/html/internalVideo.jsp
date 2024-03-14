@@ -12,7 +12,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<template:addResources type="css" resources="videoButton.css"/>
+<template:addResources type="css" resources="videoGallery.css"/>
 
 <c:set var="image" value="${currentNode.properties['videoPoster'].node}"/>
 <template:module path='${image.url}' editable='false' view='hidden.contentURL' var="imageUrl"/>

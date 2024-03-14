@@ -5,7 +5,7 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 
-<c:set var="title" value="${currentNode.properties['title'].string}"/>
+<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="titleEscaped" value="${not empty title ? fn:escapeXml(title) : fn:escapeXml(currentNode.name)}"/>
 
 <c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
@@ -27,7 +27,7 @@
         <div class="container">
             <div class="col-12">
                 <div class="row">
-                    <c:out value="${not empty title ? '<h2>' + title + '</h2>' : ''}" escapeXml="false"/>
+                    <h2>${title}</h2>
                     <c:out value="${not empty teaser ? teaser : ''}" escapeXml="false"/>
                 </div>
                 <div class="row lastEvent">

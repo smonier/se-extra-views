@@ -89,7 +89,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Jahia-Depends>default,se-utils</Jahia-Depends>
+                        <Jahia-Depends>default,se-utils,industrial,font-awesome</Jahia-Depends>
                     </instructions>
                 </configuration>
             </plugin>

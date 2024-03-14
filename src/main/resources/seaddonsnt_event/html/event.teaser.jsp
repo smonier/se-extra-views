@@ -39,7 +39,8 @@
         <div class="col-md-8">
             <div class="card-content">
                 <h6 class="card-title"><a href="#">${title}</a></h6>
-                <!-- <p class="card-text">${functions:abbreviate(functions:removeHtmlTags(teaser),100,150,'...')}</p> -->
+                <p class="card-text">${functions:abbreviate(functions:removeHtmlTags(teaser),400,450,'...')}</p>
+                <small class="text-muted">${location}</small>
                 <p class="card-text text-right bottom-0 end-0 m-0"><small class="text-muted"><fmt:formatDate pattern="dd MMM yyyy" value="${startDate}"/></small></p>
             </div>
         </div>
