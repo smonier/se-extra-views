@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Formations xmlns:bootstrap3mix="http://www.jahia.org/bootstrap3/mix/1.0" xmlns:bootstrap3nt="http://www.jahia.org/bootstrap3/nt/1.0" xmlns:bootstrap4mix="http://www.jahia.org/bootstrap4/mix/1.0" xmlns:bootstrap4nt="http://www.jahia.org/bootstrap4/nt/1.0" xmlns:capimix="http://www.jahia.org/currentes/mix/1.0" xmlns:capint="http://www.jahia.org/currents/nt/1.0" xmlns:cdbmix="http://www.jahia.org/cocktaildb/mix/1.0" xmlns:cdbnt="http://www.jahia.org/cocktaildb/nt/1.0" xmlns:cgnt="http://www.jahia.org/jahia/cgnt/1.0" xmlns:cloudy="http://modules.se.jahia.org/cloudinary/1.0" xmlns:cloudymix="http://modules.se.jahia.org/cloudinary/mix/1.0" xmlns:cloudynt="http://modules.se.jahia.org/cloudinary/nt/1.0" xmlns:crbmix="http://www.jahia.org/contentRetreivalBlock/mix/2.0" xmlns:crbnt="http://www.jahia.org/contentRetreivalBlock/nt/2.0" xmlns:dash4="http://modules.se.jahia.org/dashboard-4-user/1.0" xmlns:dash4mix="http://modules.se.jahia.org/dashboard-4-user/mix/1.0" xmlns:dash4nt="http://modules.se.jahia.org/dashboard-4-user/nt/1.0" xmlns:dc="http://www.jahia.org/jahia/database-connector/1.0" xmlns:dcmix="http://www.jahia.org/jahia/database-connector-mix/1.0" xmlns:dj="http://modules.se.jahia.org/dummyjson/1.0" xmlns:djmix="http://www.jahia.org/dummyjson/mix/1.0" xmlns:djnt="http://www.jahia.org/dummyjson/nt/1.0" xmlns:doc4="http://modules.se.jahia.org/documents-4-user/1.0" xmlns:doc4mix="http://modules.se.jahia.org/documents-4-user/mix/1.0" xmlns:doc4nt="http://modules.se.jahia.org/documents-4-user/nt/1.0" xmlns:docmix="http://www.jahia.org/jahia/docspace/mix/1.0" xmlns:dsgf="http://modules.se.jahia.org/dsgouvfr/1.0" xmlns:dsgouvmix="https://www.systeme-de-design.gouv.fr/jahia/mix/1.0" xmlns:dsgouvnt="https://www.systeme-de-design.gouv.fr/jahia/nt/1.0" xmlns:ec="http://www.jahia.org/jahia/ec/1.0" xmlns:famix="http://fontawesome.io/jahia/mix/1.0" xmlns:fant="http://fontawesome.io/jahia/nt/1.0" xmlns:fcmix="http://www.jahia.org/jahia/fc/mix/1.0" xmlns:fcnt="http://www.jahia.org/jahia/fc/nt/1.0" xmlns:fmmix="http://www.jahia.org/funds/mix/1.0" xmlns:fmnt="http://www.jahia.org/funds/nt/1.0" xmlns:ftmix="http://www.jahia.org/featurestest/mix/1.0" xmlns:ftnt="http://www.jahia.org/featurestest/nt/1.0" xmlns:fundmgmtmix="http://modules.se.jahia.org/fundmanagement/mix/1.0" xmlns:fundmgmtnt="http://modules.se.jahia.org/fundmanagement/nt/1.0" xmlns:game4="http://modules.se.jahia.org/game-4-jcustomer/1.0" xmlns:game4mix="http://modules.se.jahia.org/game-4-jcustomer/mix/1.0" xmlns:game4nt="http://modules.se.jahia.org/game-4-jcustomer/nt/1.0" xmlns:hic="http://www.jahia.org/template/headless/industrial/1.0" xmlns:hicmix="http://www.jahia.org/template/headless/industrial/mix/1.0" xmlns:hicnt="http://www.jahia.org/template/headless/industrial/nt/1.0" xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcmix="http://www.jahia.org/jahiacom/mix/1.0" xmlns:jcnt="http://www.jahia.org/jahiacom/nt/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:jdmix="http://www.jahia.org/jahiademo/mix/1.0" xmlns:jdnt="http://www.jahia.org/jahiademo/nt/1.0" xmlns:jmix="http://www.jahia.org/jahia/mix/1.0" xmlns:jmm="http://www.jahia.org/jahia/module-manager/1.0" xmlns:jnt="http://www.jahia.org/jahia/nt/1.0" xmlns:joamix="http://www.jahia.org/jahia/joa/mix/1.0" xmlns:joant="http://www.jahia.org/jahia/joa/nt/1.0" xmlns:jpcmix="http://www.jahia.org/jahia/jpcmix/1.0" xmlns:jpcnt="http://www.jahia.org/jahia/jpcnt/1.0" xmlns:jseomix="http://www.jahia.org/jahia/jseo/mix/1.0" xmlns:jseont="http://www.jahia.org/jahia/jseo/nt/1.0" xmlns:kibana="http://www.jahia.org/jahia/jexperience/kibana/1.0" xmlns:kibanamix="http://www.jahia.org/jahia/jexperience/kibana/mix/1.0" xmlns:kibanant="http://www.jahia.org/jahia/jexperience/kibana/nt/1.0" xmlns:kpk="http://modules.se.jahia.org/keepeek/1.0" xmlns:kpkmix="http://modules.se.jahia.org/keepeek/mix/1.0" xmlns:kpknt="http://modules.se.jahia.org/keepeek/nt/1.0" xmlns:mgmix="http://www.jahia.org/mg/mix/1.0" xmlns:mgnt="http://www.jahia.org/mg/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:newsBlockmix="http://www.jahia.org/newsBlock/mix/1.0" xmlns:newsBlocknt="http://www.jahia.org/newsBlock/nt/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:og="http://modules.se.jahia.org/open-graph/1.0" xmlns:ogmix="http://modules.se.jahia.org/open-graph/mix/1.0" xmlns:ognt="http://modules.se.jahia.org/open-graph/nt/1.0" xmlns:patnt="http://www.jahia.org/jahia/patnt/1.0" xmlns:pimmix="http://www.jahia.org/jahia/pim/mix/1.0" xmlns:pimnt="http://www.jahia.org/jahia/pim/nt/1.0" xmlns:portalmix="http://www.jahia.org/portal/mix/1.0" xmlns:portalnt="http://www.jahia.org/portal/nt/1.0" xmlns:releasemix="http://www.jahia.org/release/mix/1.0" xmlns:releasent="http://www.jahia.org/release/nt/1.0" xmlns:rep="internal" xmlns:seaddonsmix="http://www.jahia.org/seaddons/mix/1.0" xmlns:seaddonsnt="http://www.jahia.org/seaddons/nt/1.0" xmlns:seguromix="http://www.jahia.org/seguroandingpage/mix/1.0" xmlns:seguront="http://www.jahia.org/seguroandingpage/nt/1.0" xmlns:seu="http://modules.se.jahia.org/se-utils/1.0" xmlns:seumix="http://modules.se.jahia.org/se-utils/mix/1.0" xmlns:seunt="http://modules.se.jahia.org/se-utils/nt/1.0" xmlns:shop="http://modules.se.jahia.org/shopping/1.0" xmlns:shopmix="http://modules.se.jahia.org/shopping/mix/1.0" xmlns:shopnt="http://modules.se.jahia.org/shopping/nt/1.0" xmlns:siteimprove="http://www.jahia.org/site-improve/1.0" xmlns:siteimprovemix="http://www.jahia.org/site-improve/mix/1.0" xmlns:smomix="http://www.jahia.org/smo/mix/1.0" xmlns:smont="http://www.jahia.org/smo/nt/1.0" xmlns:sui="http://www.jahia.org/jahia/search-ui/1.0" xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:ti="http://www.jahia.org/template/b4/industrial/1.0" xmlns:timix="http://www.jahia.org/template/b4/industrial/mix/1.0" xmlns:tint="http://www.jahia.org/template/b4/industrial/nt/1.0" xmlns:tmdbmix="http://www.jahia.org/tmdb/mix/1.0" xmlns:tmdbnt="http://www.jahia.org/tmdb/nt/1.0" xmlns:vaadinmix="http://www.jahia.org/vaadin/mix/1.0" xmlns:vaadinnt="http://www.jahia.org/vaadin/nt/1.0" xmlns:viamix="http://www.jahia.org/viagem/mix/2.0" xmlns:viant="http://www.jahia.org/viagem/nt/2.0" xmlns:viawebmix="http://www.jahia.org/viaweb/mix/1.0" xmlns:viawebnt="http://www.jahia.org/viaweb/nt/1.0" xmlns:vincimix="http://www.jahia.org/vinci/mix/1.0" xmlns:vincint="http://www.jahia.org/vinci/nt/1.0" xmlns:vmix="http://www.jahia.org/viagem/mix/1.0" xmlns:vnt="http://www.jahia.org/viagem/nt/1.0" xmlns:wden="http://modules.se.jahia.org/wden/1.0" xmlns:wdenmix="http://modules.se.jahia.org/wden/mix/1.0" xmlns:wdennt="http://modules.se.jahia.org/wden/nt/1.0" xmlns:wem="http://www.jahia.org/jahia/wem/1.0" xmlns:wemmix="http://www.jahia.org/jahia/wem/mix/1.0" xmlns:wemnt="http://www.jahia.org/jahia/wem/nt/1.0" j:editableInContribution="true" j:originWS="default" jcr:created="2024-03-01T10:30:07.073Z" jcr:createdBy="root" jcr:lastModified="2024-03-01T10:30:07.073Z" jcr:lastModifiedBy="root" jcr:mixinTypes="jmix:contributeMode" jcr:primaryType="jnt:contentFolder">
+    <formationSession1 jcr:primaryType="seaddonsnt:trainingSession" j:originWS="default"
+        sessionDate="2024-03-10T08:00:00.000Z"
+        startTime="08:00"
+        endTime="11:00"
+        location="Baccalauréat ou équivalent."
+        levelOfExpertise="Beginner"
+        instructorName="John Doe">
+        <j:translation_fr jcr:language="fr" jcr:title="Licence en Sociologie" sessionTitle="Licence en Sociologie"
+            sessionDescription="Étude des sociétés, de leurs structures, de leurs fonctionnements et des interactions humaines."
+            sessionObjective="Fournir aux étudiants les outils analytiques pour comprendre les dynamiques sociales et contribuer à la résolution des problèmes sociétaux."
+            jcr:primaryType="jnt:translation" />
+    </formationSession1>
+    <formationSession2 jcr:primaryType="seaddonsnt:trainingSession" j:originWS="default"
+        sessionDate="2024-03-12T09:00:00.000Z"
+        startTime="09:00"
+        endTime="12:00"
+        location="Baccalauréat ou équivalent."
+        levelOfExpertise="Intermediate"
+        instructorName="Emily Stark">
+        <j:translation_fr jcr:language="fr" jcr:title="Licence en Sciences Politiques" sessionTitle="Licence en Sciences Politiques"
+            sessionDescription="Exploration des théories politiques, des systèmes politiques et des relations internationales."
+            sessionObjective="Préparer les étudiants à analyser les processus politiques et à s'engager dans la vie politique, publique ou internationale."
+            jcr:primaryType="jnt:translation" />
+    </formationSession2>
+    <formationSession3 jcr:primaryType="seaddonsnt:trainingSession" j:originWS="default"
+        sessionDate="2024-03-15T10:00:00.000Z"
+        startTime="10:00"
+        endTime="13:00"
+        location="Baccalauréat ou équivalent."
+        levelOfExpertise="Advanced"
+        instructorName="Alan Turing">
+        <j:translation_fr jcr:language="fr" jcr:title="Licence en Anthropologie" sessionTitle="Licence en Anthropologie"
+            sessionDescription="Étude de l'humain sous toutes ses formes et à travers le temps, en se concentrant sur la culture, l'évolution et le comportement social."
+            sessionObjective="Équiper les étudiants de compétences pour comprendre la diversité humaine et promouvoir le respect interculturel."
+            jcr:primaryType="jnt:translation" />
+    </formationSession3>
+    <formationSession4 jcr:primaryType="seaddonsnt:trainingSession" j:originWS="default"
+        sessionDate="2024-03-20T08:00:00.000Z"
+        startTime="08:00"
+        endTime="11:00"
+        location="Licence en Psychologie ou en Sciences Sociales."
+        levelOfExpertise="Expert"
+        instructorName="Dr. Jane Smith">
+        <j:translation_fr jcr:language="fr" jcr:title="Master en Psychologie Sociale" sessionTitle="Master en Psychologie Sociale"
+            sessionDescription="Approfondissement des connaissances sur les influences sociales sur le comportement et les pensées individuelles."
+            sessionObjective="Former des professionnels capables d'appliquer les principes de la psychologie sociale dans divers contextes, tels que le marketing, la santé publique, et la résolution de conflits."
+            jcr:primaryType="jnt:translation" />
+    </formationSession4>
+    <formationSession5 jcr:primaryType="seaddonsnt:trainingSession" j:originWS="default"
+        sessionDate="2024-03-22T09:00:00.000Z"
+        startTime="09:00"
+        endTime="12:00"
+        location="Licence dans un domaine pertinent comme les Sciences Sociales, l'Économie ou les Relations Internationales."
+        levelOfExpertise="Beginner"
+        instructorName="Mark Renner">
+        <j:translation_fr jcr:language="fr" jcr:title="Master en Développement International" sessionTitle="Master en Développement International"
+            sessionDescription="Études interdisciplinaires sur les enjeux du développement économique, social et durable à l'échelle mondiale."
+            sessionObjective="Préparer les étudiants à concevoir et à mettre en œuvre des politiques de développement et des programmes d'aide internationale."
+            jcr:primaryType="jnt:translation" />
+    </formationSession5>
+    <formationSession6 jcr:primaryType="seaddonsnt:trainingSession" j:originWS="default"
+        sessionDate="2024-03-25T10:00:00.000Z"
+        startTime="10:00"
+        endTime="13:00"
+        location="Licence en Sciences Sociales, Humanités ou domaine connexe."
+        levelOfExpertise="Intermediate"
+        instructorName="Lisa Wong">
+        <j:translation_fr jcr:language="fr" jcr:title="Master en Études de Genre" sessionTitle="Master en Études de Genre"
+            sessionDescription="Exploration critique des rôles, des relations et des inégalités de genre dans divers contextes socioculturels et historiques."
+            sessionObjective="Former des experts capables d'intégrer les perspectives de genre dans la recherche, la politique publique et les pratiques professionnelles."
+            jcr:primaryType="jnt:translation" />
+    </formationSession6>
+</Formations>
