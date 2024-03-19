@@ -15,8 +15,10 @@
 <c:set var="titleEscaped" value="${not empty title ? fn:escapeXml(title) : fn:escapeXml(currentNode.name)}"/>
 
 <c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
-<c:set var="subNodeView" value="default"/>
-
+<c:set var="subNodeView" value="${currentNode.properties['j:subNodesView'].string}"/>
+<c:if test="${empty subNodeView}">
+    <c:set var="subNodeView" value="simpleCard"/>
+</c:if>
 <c:set var="rand">
     <%= java.lang.Math.round(java.lang.Math.random() * 10000) %>
 </c:set>

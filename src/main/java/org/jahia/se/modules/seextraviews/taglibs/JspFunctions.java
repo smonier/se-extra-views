@@ -20,6 +20,9 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Calendar;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 public final class JspFunctions {
     private static final Logger logger = LoggerFactory.getLogger(JspFunctions.class);
@@ -93,6 +96,21 @@ public final class JspFunctions {
         } catch (ParseException e) {
             e.printStackTrace();
             return null; // Or handle this more gracefully depending on your requirements
+        }
+    }
+
+    public static String transformDateString(String dateString) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = sdf.parse(dateString); // Parse the input string to a Date object.
+            ZonedDateTime zdt = ZonedDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault())
+                    .withHour(0).withMinute(0).withSecond(0).withNano(0); // Convert to ZonedDateTime at midnight.
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+            return zdt.format(formatter); // Format and return the ZonedDateTime as a string.
+        } catch (ParseException e) {
+            e.printStackTrace(); // Handle parsing exceptions.
+            return null; // Or handle it in another way that fits your application's requirements.
         }
     }
 
