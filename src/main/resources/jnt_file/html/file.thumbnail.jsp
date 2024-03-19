@@ -19,7 +19,7 @@
     <img class="card-img-top" src="${currentNode.url}?t=thumbnail" alt="Card image" style="width:100%">
     <div class="card-body">
         <h5 class="card-title">
-           ${title ? title : currentNode.name}
+           ${not empty title ? title : currentNode.name}
         </h5>
         <p class="card-text">
             <ul>

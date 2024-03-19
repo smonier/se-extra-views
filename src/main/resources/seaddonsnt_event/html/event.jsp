@@ -57,7 +57,7 @@
                 <c:if test="${not empty eventsType}">
                     <br/><span class="author"><i class="fas fa-bolt text-primary mr-2"></i> <fmt:message key='seaddonsnt_event.eventsType.${eventsType}'/></span>
                 </c:if>
-                <h2 class="title"><a href="#">${title}</a></h2>
+                <h4 class="title"><a href="#">${title}</a></h4>
                 <p class="text">${functions:removeHtmlTags(teaser)}</p>
             </div>
             <input type="checkbox" id="show-menu"/>

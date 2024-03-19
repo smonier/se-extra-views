@@ -151,7 +151,7 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  transform: translateY(calc(140px + 1em));
+  transform: translateY(calc(200px + 1em));
   transition: transform 0.3s;
 }
 

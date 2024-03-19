@@ -18,7 +18,7 @@
 
 <c:set var="queryConstraint" value=""/>
 <c:if test="${not empty filterId}">
-    <c:set var="queryConstraint" value="and contents.[j:defaultCategory]='${filterId}'"/>
+    <c:set var="queryConstraint" value="and events.[j:defaultCategory]='${filterId}'"/>
 </c:if>
 
 <c:set var="lastContentsStatement" value="select * from [seaddonsnt:event] as events where ISDESCENDANTNODE(events,'${folderPath}') ${queryConstraint} order by events.[startDate] asc"/>

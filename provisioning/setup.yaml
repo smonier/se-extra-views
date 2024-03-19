@@ -9,6 +9,7 @@
     - "mvn:org.jahia.modules/popperjs"
     - "mvn:org.jahia.modules/bootstrap4-core"
     - "mvn:org.jahia.modules/bootstrap4-components"
+    - "mvn:org.jahia.modules/font-awesome"
     - "mvn:org.jahia.se.modules/codemirror-editor"
     - "mvn:org.jahia.se.modules/se-utils"
     - "mvn:org.jahia.se.modules/industrial"
