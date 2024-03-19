@@ -18,6 +18,12 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
+<c:if test="${renderContext.editMode}">
+    <legend>${fn:escapeXml(jcr:label(currentNode.primaryNodeType, currentResource.locale))}</legend>
+</c:if>
+
+
+
 <template:addResources type="css" resources="eventCard.css"/>
 
 <c:set var="startDate" value="${currentNode.properties['startDate'].time}"/>
@@ -29,28 +35,47 @@
 <c:set var="image" value="${currentNode.properties['image'].node}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
-<jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
 
+<style>
+    .card-${currentNode.identifier} .wrapper {
+        background: url(${image.url}) 20% 1% / cover no-repeat;
+    }
+</style>
+<c:set var="modalId" value="${currentNode.identifier}" />
 
-<div class="teaser-card mb-2">
-    <div class="row g-0">
-        <div class="card-image col-md-4">
-            <img src="${image.url}" class="img-fluid rounded-start" alt="${image.name}">
+<template:include
+        view="hidden.getLinkToURL" />
+
+<template:include
+        view="hidden.modal.description" />
+
+<div class="event-card card-${currentNode.identifier} col-md-4 mb-3">
+    <div class="wrapper">
+        <div class="date">
+            <span class="day"><fmt:formatDate pattern="dd" value="${startDate}"/></span>
+            <span class="month"><fmt:formatDate pattern="MMM" value="${startDate}"/></span>
+            <span class="year"><fmt:formatDate pattern="yyyy" value="${startDate}"/></span>
+            <c:if test="${not empty endDate}">
+                <span><fmt:message key='label.eventDate.to'/></span>
+                <span class="day"><fmt:formatDate pattern="dd" value="${endDate}"/></span>
+                <span class="month"><fmt:formatDate pattern="MMM" value="${endDate}"/></span>
+                <span class="year"><fmt:formatDate pattern="yyyy"
+                                                   value="${endDate}"/></span>
+            </c:if>
         </div>
-        <div class="col-md-8">
-            <div class="card-content">
-                <h6 class="card-title"><a href="#">${title}</a></h6>
-                <p class="card-text">
-                <c:if test="${not empty categories}">
-                    <c:forEach items="${categories}" var="category">
-                        <span class="badge badge-secondary">${category.node.displayableName}</span>&nbsp;
-                    </c:forEach>
+        <div class="data">
+            <div class="content">
+                <span class="author"><i class="fas fa-map-marker-alt text-primary mr-2"></i> ${location}</span>
+                <c:if test="${not empty eventsType}">
+                    <br/><span class="author"><i class="fas fa-bolt text-primary mr-2"></i> <fmt:message key='seaddonsnt_event.eventsType.${eventsType}'/></span>
                 </c:if>
-                </p>
-                <p class="card-text">${functions:abbreviate(functions:removeHtmlTags(teaser),400,450,'...')}</p>
-                <small class="text-muted">${location}</small>
-                <p class="card-text text-right bottom-0 end-0 m-0"><small class="text-muted"><fmt:formatDate pattern="dd MMM yyyy" value="${startDate}"/></small></p>
+                <h4 class="title"><a href="#">${title}</a></h4>
+                <p class="text">${functions:removeHtmlTags(teaser)}</p>
+                <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modal-${modalId}">
+                    <fmt:message key='seaddonsnt_event.body' />
+                </button>
             </div>
+
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
 <c:set var="dateFilter" value="${param.date}"/>
 
 
-<c:set var="title" value="${currentNode.properties['title'].string}"/>
+<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="titleEscaped" value="${not empty title ? fn:escapeXml(title) : fn:escapeXml(currentNode.name)}"/>
 
 <c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
@@ -31,8 +31,8 @@
             <div class="container">
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-8 text-center">
-                        <c:out value="${not empty title ? '<h2>' + title + '</h2>' : ''}" escapeXml="false"/>
-                        <c:out value="${not empty teaser ? teaser : ''}" escapeXml="false"/>
+                        <h2>${title}</h2>
+                        <p>${teaser}</p>
                     </div>
                 </div>
                 <div class="row">

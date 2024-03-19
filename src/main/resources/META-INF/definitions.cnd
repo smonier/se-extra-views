@@ -8,7 +8,7 @@
 [seaddonsmix:seUtilsEditorialComponents] > jmix:droppableContent, jmix:editorialContent mixin
 
 
-[seaddonsnt:event] > jnt:content, jmix:editorialContent, mix:title, jmix:structuredContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:event] > jnt:content, jmix:editorialContent, mix:title, seumix:linkTo, jmix:structuredContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
  - startDate (date) facetable
  - endDate (date) facetable
  - location (string) i18n facetable
@@ -16,6 +16,8 @@
  - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
  - image (weakreference, picker[type='image']) < 'jmix:image'
+ - buttonLabel (string) internationalized
+
 
 [seaddonsnt:lastEvent] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
  - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized

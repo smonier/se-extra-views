@@ -9,7 +9,6 @@
 <c:set var="titleEscaped" value="${not empty title ? fn:escapeXml(title) : fn:escapeXml(currentNode.name)}"/>
 
 <c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
-
 <c:set var="subNodeView" value="${currentNode.properties['j:subNodesView'].string}"/>
 <c:if test="${empty subNodeView}">
     <c:set var="subNodeView" value="teaser"/>
@@ -30,11 +29,9 @@
                     <h2>${title}</h2>
                     <c:out value="${not empty teaser ? teaser : ''}" escapeXml="false"/>
                 </div>
-                <div class="row lastEvent">
+                <div class="row lastEvent d-flex align-items-stretch mb-3">
                     <c:forEach items="${result.nodes}" var="node">
-                        <div class="col-12  d-flex align-items-stretch mb-3">
                             <template:module view="${subNodeView}" node="${node}" />
-                        </div>
                     </c:forEach>
                 </div>
             </div>

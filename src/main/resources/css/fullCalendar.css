@@ -1,0 +1,86 @@
+/* Calendar Base Styles */
+#calendar {
+    font-family: 'Arial', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px; /* Adjust based on your preference */
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.header {
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+.header .prev,
+.header .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 18px;
+}
+
+.header .prev { left: 10px; }
+.header .next { right: 10px; }
+
+.header .month-year {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 days a week */
+    text-align: center;
+    padding: 10px 0;
+}
+
+.days .day {
+    padding: 10px 0;
+    margin: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 5px; /* Adjust padding to create space around highlighted elements */
+    margin: 5px; /* Add or adjust margin for aesthetic spacing */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects, if desired */
+}
+
+.days .day:hover {
+    background-color: #f0f0f0;
+}
+
+.days .day .highlighted {
+    background-color: var(--primary); /* Highlight color */
+    color: #000; /* Text color for highlighted days */
+    padding: 10px 0;
+    margin: 4px;
+    display: block; /* Makes the whole area clickable */
+    text-align: center; /* Ensures text is centered within the highlight */
+}
+
+.current-day {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.week {
+    display: contents;
+}
+
+
+/* Adjust the container of the days to ensure there's enough space for the rounded corners */
+.day {
+
+}
+
+/* Additional styling for hover effects, if you wish to make the interaction more dynamic */
+.days .day .highlighted:hover {
+    background-color: var(--secondary); /* A slightly different color on hover */
+    color: #FFFFFF;
+}

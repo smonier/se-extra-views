@@ -49,7 +49,7 @@ type="org.jahia.services.render.URLGenerator" --%>
     </c:if>
 </c:forEach>
 <div class="container videoGallery">
-    <h2 class="text-center mb-2">${title}</h2>
+    <h2 class="text-center mb-3">${title}</h2>
 
     <!-- Video and Description -->
     <div class="row mainVideo">
