@@ -1,0 +1,95 @@
+.fr-tile {
+    --text-spacing: 0;
+    --title-spacing: 0 0 0.25rem;
+    --idle: transparent;
+    --hover: var(--background-default-grey-hover);
+    --active: var(--background-default-grey-active);
+    background-color: var(--background-default-grey);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem 2.25rem;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ccc; /* Example general border, replace #ccc with your desired color or remove if not needed */
+    border-bottom: 3px solid var(--primary); /* Primary color bottom border */
+    height: 100%;
+  }
+  
+  .fr-tile:hover {
+    background-color: var(--hover); /* Assuming var(--hover) is defined elsewhere */
+  }
+  
+  .fr-tile:active {
+    background-color: var(--active); /* Assuming var(--active) is defined elsewhere */
+  }
+  
+  .fr-tile__header {
+    margin-bottom: 1rem;
+    order: 1;
+  }
+  
+  .fr-tile__pictogram {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    height: 5rem;
+    justify-content: center;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 5rem;
+  }
+  
+  .fr-tile__pictogram > svg {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .fr-tile__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .fr-tile__body {
+    flex: 1 1 auto;
+    height: 100%;
+    order: 2;
+  }
+  
+  .fr-tile__title {
+    color: var(--text-title-grey);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.5rem;
+    margin-bottom: .5rem;
+    order: 2;
+  }
+  
+  .fr-tile__desc {
+    flex: 1 1 auto;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    order: 3;
+  }
+  
+  .fr-tile__detail {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    font-size: .75rem;
+    line-height: 1.25rem;
+    margin-bottom: 0;
+    margin-top: .75rem;
+    order: 4;
+  }
+  
+  /* Additional specific rules for links within .fr-tile */
+  .fr-tile__title a {
+    color: var(--primary)!important;
+  }
+  
+  .fr-tile__title a:before {
+    background-image: linear-gradient(0deg, var(--primary), var(--primary))!important;
+  }
+  

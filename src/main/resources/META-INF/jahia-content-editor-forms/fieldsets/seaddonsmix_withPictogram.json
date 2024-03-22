@@ -11,7 +11,7 @@
                 "accordionItem": {
                     "picker-media": {
                         "label":"Pictogrammes",
-                        "rootPath": "/sites/ehess-internet/files/utility/pictograms",
+                        "rootPath": "/sites/systemsite/files/utility/pictograms",
                         "treeConfig": {
                             "hideRoot": false
                         }
@@ -22,7 +22,7 @@
                     "pickerDialog": {
                         "displaySiteSwitcher": false,
                         "displayTree": true,
-                        "dialogTitle": "design-system-gouv-fr:label.picto.picker.title",
+                        "dialogTitle": "se-extra-views:label.picto.picker.title",
                         "displaySearch": true
                     },
                     "pickerTable": {

@@ -19,8 +19,8 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <c:if test="${renderContext.editMode}">
-    <legend>${fn:escapeXml(jcr:label(currentNode.primaryNodeType, currentResource.locale))}</legend>
-</c:if>
+<!--     <legend>${fn:escapeXml(jcr:label(currentNode.primaryNodeType, currentResource.locale))}</legend>
+ --></c:if>
 
 
 
@@ -49,7 +49,7 @@
 <template:include
         view="hidden.modal.description" />
 
-<div class="event-card card-${currentNode.identifier} col-md-4 mb-3">
+<div class="event-card card-${currentNode.identifier} mb-3">
     <div class="wrapper">
         <div class="date">
             <span class="day"><fmt:formatDate pattern="dd" value="${startDate}"/></span>

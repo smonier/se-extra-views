@@ -19,7 +19,7 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <!-- Tuile verticale avec description -->
 <template:addResources type="css"
-    resources="dsfr.main.min.css" />
+    resources="tile.css" />
 
 <fmt:setLocale value="${currentResource.locale.language}" scope="session" />
 
@@ -51,6 +51,7 @@
 
 <%--linkTo--%>
 <template:include view="hidden.getLinkToURL"/>
+<utility:logger level="INFO" value="link : ${moduleMap.linkUrl}"/>
 
 <div class="fr-tile fr-enlarge-link" id="tile-${currentNode.identifier}">
     <div class="fr-tile__body">
