@@ -7,36 +7,57 @@
 
 <fmt:setLocale value="${currentResource.locale.language}" scope="session"/>
 
-<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+<c:set var="title" value="${currentNode.properties['sessionTitle'].string}"/>
 <c:set var="titleEscaped" value="${not empty title ? fn:escapeXml(title) : fn:escapeXml(currentNode.name)}"/>
 
-<c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
-<c:set var="body" value="${currentNode.properties['body'].string}"/>
+
+<c:set var="sessionDate" value="${currentNode.properties['sessionDate'].time}" />
+<c:set var="sessionTitle" value="${currentNode.properties['sessionTitle'].string}" />
+<c:set var="sessionDescription" value="${currentNode.properties['sessionDescription'].string}" />
+<c:set var="sessionObjective" value="${currentNode.properties['sessionObjective'].string}" />
+<c:set var="startTime" value="${currentNode.properties['startTime'].string}" />
+<c:set var="endTime" value="${currentNode.properties['endTime'].string}" />
+<c:set var="location" value="${currentNode.properties['location'].string}" />
+<c:set var="instructorName" value="${currentNode.properties['instructorName'].string}" />
+<c:set var="materialsLink" value="${currentNode.properties['materialsLink'].string}" />
+<c:set var="levelOfExpertise" value="${currentNode.properties['levelOfExpertise'].string}" />
+<c:set var="buttonLabel" value="${currentNode.properties['buttonLabel'].string}" />
+<jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
+
+<c:choose>
+    <c:when
+        test="${levelOfExpertise == 'Beginner'}">
+        <c:set var="badgeClass"
+            value="badge badge-success" />
+    </c:when>
+    <c:when
+        test="${levelOfExpertise == 'Intermediate'}">
+        <c:set var="badgeClass"
+            value="badge badge-danger" />
+    </c:when>
+    <c:when
+        test="${levelOfExpertise == 'Advanced'}">
+        <c:set var="badgeClass"
+            value="badge badge-info" />
+    </c:when>
+    <c:otherwise>
+        <c:set var="badgeClass"
+            value="badge badge-secondary" />
+    </c:otherwise>
+</c:choose>
 
 <fmt:message key="label.date.at" var="at"/>
-<c:set var="date" value="${currentNode.properties['date'].date}"/>
-<fmt:formatDate value="${date.time}" pattern="dd MMM yyyy" var="formatedDate"/>
-<fmt:formatDate value="${date.time}" pattern="HH:ss" var="formatedTime"/>
-<c:if test="${not empty formatedDate && formatedTime != '00:00'}">
-    <c:set var="formatedDate" value="${formatedDate} ${at} ${formatedTime}"/>
+<fmt:message key="label.time.from" var="from"/>
+<fmt:message key="label.time.to" var="to"/>
+
+<fmt:formatDate value="${sessionDate}" pattern="dd MMM yyyy" var="formatedDate"/>
+<c:if test="${not empty formatedDate}">
+    <c:set var="formatedDate" value="${formatedDate} ${from} ${startTime} ${to} ${endTime}"/>
 </c:if>
 
-<c:set var="imageNode" value="${currentNode.properties['imageLandscape'].node}"/>
-<template:addCacheDependency node="${imageNode}"/>
-<c:set var="width" value="${not empty currentResource.moduleParams.mediaWidth ? currentResource.moduleParams.mediaWidth : '1920'}"/>
-<c:set var="height" value="${currentResource.moduleParams.mediaHeight}"/>
-<c:set var="scale" value="${currentResource.moduleParams.mediaScale}"/>
-<c:set var="quality" value="${currentResource.moduleParams.mediaQuality}"/>
-
-<c:catch var ="getUrlException">
-    <c:set var="imageURL" value="${imageNode.getUrl(['width:'.concat(width),'height:'.concat(height),'scale:'.concat(scale),'quality:'.concat(quality)])}"/>
-</c:catch>
-<c:if test = "${getUrlException != null}">
-    <c:set var="imageURL" value="${imageNode.getUrl()}"/>
-</c:if>
 
 <div class="inner-page">
-    <div class="slider-item" style="background-image: url('${imageURL}');">
+    <div class="slider-item" style="background-image: url('https://picsum.photos/seed/picsum/1600/800');">
     </div>
 </div>
 
@@ -45,24 +66,43 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5">
                 <h1>${titleEscaped}</h1>
+                <c:if test="${not empty categories}">
+                    <c:forEach items="${categories}" var="category">
+                        <span class="badge badge-secondary">${category.node.displayableName}</span>&nbsp;
+                    </c:forEach>
+                </c:if>
                 <div class="border-top border-bottom border-secondary pt-4 pb-4">
-                    <span class="ion-md-calendar mr-2"></span>
-                    <fmt:message key="label.date.createdAt"/> : ${formatedDate}
+                    <i class="far fa-calendar-alt"></i> 
+                     ${formatedDate}
                 </div>
+                <div class="pull-right">
+                    <span class="${badgeClass}">
+                        <fmt:message
+                            key='seaddonsnt_trainingSession.levelOfExpertise.${levelOfExpertise}' />
+                    </span>
+                </div>
+                <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                <strong>
+                    <fmt:message key='seaddonsnt_trainingSession.location' />
+                </strong>: ${location}<br/>
+                <i class="fas fa-chalkboard-teacher text-primary mr-2"></i>
+                <strong>
+                    <fmt:message key='seaddonsnt_trainingSession.instructorName' />
+                </strong>: ${instructorName}
             </div>
         </div>
 
         <div class="row row-teaser justify-content-center">
             <div class="col-md-10">
                 <div class="lead">
-                    ${teaser}
+                    ${sessionDescription}
                 </div>
             </div>
         </div>
 
         <div class="row row-article justify-content-center">
             <div class="col-md-10">
-                ${body}
+                ${sessionObjective}
             </div>
         </div>
     </div>

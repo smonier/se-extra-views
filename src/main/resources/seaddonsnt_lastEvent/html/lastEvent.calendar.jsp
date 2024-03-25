@@ -6,34 +6,47 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="seutils" uri="https://www.se-extra-views.jahia.com/jahia/tags/1.0" %>
 
-<%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
-<%--@elvariable id="out" type="java.io.PrintWriter"--%>
-<%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
-<%--@elvariable id="scriptInfo" type="java.lang.String"--%>
-<%--@elvariable id="workspace" type="java.lang.String"--%>
-<%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
-<%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
-<%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+<%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper" --%>
+<%--@elvariable id="out" type="java.io.PrintWriter" --%>
+<%--@elvariable id="script" type="org.jahia.services.render.scripting.Script" --%>
+<%--@elvariable id="scriptInfo" type="java.lang.String" --%>
+<%--@elvariable id="workspace" type="java.lang.String" --%>
+<%--@elvariable id="renderContext"
+type="org.jahia.services.render.RenderContext" --%>
+<%--@elvariable id="currentResource"
+type="org.jahia.services.render.Resource" --%>
+<%--@elvariable id="url"
+type="org.jahia.services.render.URLGenerator" --%>
 
 <c:if test="${renderContext.editMode}">
-    <legend>${fn:escapeXml(jcr:label(currentNode.primaryNodeType, currentResource.locale))}</legend>
+    <legend>
+        ${fn:escapeXml(jcr:label(currentNode.primaryNodeType,
+        currentResource.locale))}</legend>
 </c:if>
-<template:addResources type="css" resources="fullCalendar.css"/>
+<template:addResources type="css"
+    resources="fullCalendar.css" />
 
 
-<c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
-<c:set var="maxItems" value="${currentNode.properties['maxItems'].long}"/>
-<c:set var="folder" value="${currentNode.properties['folder'].node}"/>
-<c:set var="filter" value="${currentNode.properties['filter'].node}"/>
-<c:set var="subNodesView" value="${currentNode.properties['j:subNodesView'].string}"/>
-<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
-<c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
+<c:set var="teaser"
+    value="${currentNode.properties['teaser'].string}" />
+<c:set var="maxItems"
+    value="${currentNode.properties['maxItems'].long}" />
+<c:set var="folder"
+    value="${currentNode.properties['folder'].node}" />
+<c:set var="filter"
+    value="${currentNode.properties['filter'].node}" />
+<c:set var="subNodesView"
+    value="${currentNode.properties['j:subNodesView'].string}" />
+<c:set var="title"
+    value="${currentNode.properties['jcr:title'].string}" />
+<c:set var="description"
+    value="${currentNode.properties['jcr:description'].string}" />
 
-<template:include view="hidden.load"/>
-<c:set var="listQuery" value="${moduleMap.listQuery}"/>
-<jcr:jqom var="result" qomBeanName="listQuery"/>
-<c:set var="listQuery2" value="${moduleMap.listQuery2}"/>
-<jcr:jqom var="result2" qomBeanName="listQuery2"/>
+<template:include view="hidden.load" />
+<c:set var="listQuery" value="${moduleMap.listQuery}" />
+<jcr:jqom var="result" qomBeanName="listQuery" />
+<c:set var="listQuery2" value="${moduleMap.listQuery2}" />
+<jcr:jqom var="result2" qomBeanName="listQuery2" />
 
 <c:choose>
     <c:when test="${empty result}">
@@ -42,27 +55,36 @@
     <c:otherwise>
         <div class="container">
             <did class="row d-flex">
-            <div class="col-md-4">
-                <div id="calendar">
-                    <div class="header">
-                        <span class="prev">&#10094;</span>
-                        <span class="month-year"></span>
-                        <span class="next">&#10095;</span>
+                <div class="col-md-12">
+                    <div class="row d-flex justify-content-center align-items-center mb-3">
+                        <h2>${title}</h2>
+                        <c:out
+                            value="${not empty teaser ? teaser : ''}"
+                            escapeXml="false" />
                     </div>
-                    <div class="days"></div>
+                    <div id="calendar">
+                        <div class="header">
+                            <span
+                                class="prev">&#10094;</span>
+                            <span class="month-year"></span>
+                            <span
+                                class="next">&#10095;</span>
+                        </div>
+                        <div class="days"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <h2>${title}</h2>
-                    <c:out value="${not empty teaser ? teaser : ''}" escapeXml="false"/>
+                <div class="col-md-12 mt-5">
+                    
+                    <div
+                        class="row lastEvent d-flex align-items-stretch mb-3">
+                        <c:forEach items="${result.nodes}"
+                            var="node">
+                            <template:module
+                                view="${subNodesView}"
+                                node="${node}" />
+                        </c:forEach>
+                    </div>
                 </div>
-                <div class="row lastEvent d-flex align-items-stretch mb-3">
-                    <c:forEach items="${result.nodes}" var="node">
-                        <template:module view="${subNodesView}" node="${node}"/>
-                    </c:forEach>
-                </div>
-            </div>
         </div>
         </div>
     </c:otherwise>
@@ -77,11 +99,11 @@
         const monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
 
-// Example highlighted dates. You would replace this with your actual dates.
+        // Example highlighted dates. You would replace this with your actual dates.
         const highlightedDates = [];
         <c:forEach items="${result2.nodes}" var="node">
-        highlightedDates.push("<fmt:formatDate pattern="yyyy-MM-dd" value="${node.properties['startDate'].time}"/>");
-        highlightedDates.push("<fmt:formatDate pattern="yyyy-MM-dd" value="${node.properties['endDate'].time}"/>");
+            highlightedDates.push("<fmt:formatDate pattern="yyyy-MM-dd" value="${node.properties['startDate'].time}" />");
+            highlightedDates.push("<fmt:formatDate pattern="yyyy-MM-dd" value="${node.properties['endDate'].time}" />");
         </c:forEach>
 
         console.log(highlightedDates);

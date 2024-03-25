@@ -30,6 +30,7 @@
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="cat"/>
+<c:url value="${currentNode.url}" var="contentURL"/>
 
 <style>
     .card-${currentNode.identifier} .wrapper {
@@ -57,7 +58,7 @@
                 <c:if test="${not empty eventsType}">
                     <br/><span class="author"><i class="fas fa-bolt text-primary mr-2"></i> <fmt:message key='seaddonsnt_event.eventsType.${eventsType}'/></span>
                 </c:if>
-                <h4 class="title"><a href="#">${title}</a></h4>
+                <h4 class="title"><a href="${contentURL}">${title}</a></h4>
                 <p class="text">${functions:removeHtmlTags(teaser)}</p>
             </div>
             <input type="checkbox" id="show-menu"/>

@@ -49,6 +49,7 @@ type="org.jahia.services.render.URLGenerator"
     value="${currentNode.properties['levelOfExpertise'].string}" />
 <c:set var="buttonLabel"
     value="${currentNode.properties['buttonLabel'].string}" />
+    <c:url value="${currentNode.url}" var="contentURL"/>
 
 
 <c:choose>

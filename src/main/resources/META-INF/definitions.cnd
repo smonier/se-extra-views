@@ -8,7 +8,7 @@
 [seaddonsmix:seUtilsEditorialComponents] > jmix:droppableContent, jmix:editorialContent mixin
 
 
-[seaddonsnt:event] > jnt:content, jmix:editorialContent, mix:title, seumix:linkTo, jmix:structuredContent, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:event] > jnt:content, jmix:mainResource, mix:title, seumix:linkTo, jmix:structuredContent, seaddonsmix:seUtilsEditorialComponents
  - startDate (date) facetable
  - endDate (date) facetable
  - location (string) i18n facetable
@@ -45,7 +45,7 @@
 [seaddonsnt:calendar] > jnt:content, seaddonsmix:seUtilsEditorialComponents
  - nbDate (long) = 15 indexed=no
 
-[seaddonsnt:trainingSession] > jnt:content, jmix:editorialContent, mix:title, seumix:linkTo, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:trainingSession] > jnt:content, jmix:mainResource, mix:title, seumix:linkTo, seaddonsmix:seUtilsEditorialComponents
  - sessionTitle (string) internationalized mandatory
  - sessionDescription (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
  - sessionObjective (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized

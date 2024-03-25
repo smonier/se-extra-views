@@ -29,28 +29,18 @@ type="org.jahia.services.render.URLGenerator"
 
 <c:set var="modalId" value="${currentNode.identifier}" />
 
-<c:set var="sessionDate"
-    value="${currentNode.properties['sessionDate'].time}" />
-<c:set var="sessionTitle"
-    value="${currentNode.properties['sessionTitle'].string}" />
-<c:set var="sessionDescription"
-    value="${currentNode.properties['sessionDescription'].string}" />
-<c:set var="sessionObjective"
-    value="${currentNode.properties['sessionObjective'].string}" />
-<c:set var="startTime"
-    value="${currentNode.properties['startTime'].string}" />
-<c:set var="endTime"
-    value="${currentNode.properties['endTime'].string}" />
-<c:set var="location"
-    value="${currentNode.properties['location'].string}" />
-<c:set var="instructorName"
-    value="${currentNode.properties['instructorName'].string}" />
-<c:set var="materialsLink"
-    value="${currentNode.properties['materialsLink'].string}" />
-<c:set var="levelOfExpertise"
-    value="${currentNode.properties['levelOfExpertise'].string}" />
-<c:set var="buttonLabel"
-    value="${currentNode.properties['buttonLabel'].string}" />
+<c:set var="sessionDate" value="${currentNode.properties['sessionDate'].time}" />
+<c:set var="sessionTitle" value="${currentNode.properties['sessionTitle'].string}" />
+<c:set var="sessionDescription" value="${currentNode.properties['sessionDescription'].string}" />
+<c:set var="sessionObjective" value="${currentNode.properties['sessionObjective'].string}" />
+<c:set var="startTime" value="${currentNode.properties['startTime'].string}" />
+<c:set var="endTime" value="${currentNode.properties['endTime'].string}" />
+<c:set var="location" value="${currentNode.properties['location'].string}" />
+<c:set var="instructorName" value="${currentNode.properties['instructorName'].string}" />
+<c:set var="materialsLink" value="${currentNode.properties['materialsLink'].string}" />
+<c:set var="levelOfExpertise" value="${currentNode.properties['levelOfExpertise'].string}" />
+<c:set var="buttonLabel" value="${currentNode.properties['buttonLabel'].string}" />
+<c:url value="${currentNode.url}" var="contentURL" />
 
 
 <c:choose>
@@ -79,43 +69,59 @@ type="org.jahia.services.render.URLGenerator"
     view="hidden.getLinkToURL" />
 
 <template:include
-        view="hidden.modal.objectives" />
+    view="hidden.modal.objectives" />
 
 <div
     class="card training-card d-flex flex-column">
     <div class="card-body">
 
-        <h3 class="card-title"> ${sessionTitle} </h3>
-        <div class="card-text"> ${sessionDescription} </div>
+        <h3 class="card-title">
+            ${sessionTitle} </h3>
+        <div class="card-text">
+            ${sessionDescription} </div>
         <div class="text-center">
-            <button type="button" class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modal-${modalId}">
-                <fmt:message key='seaddonsnt_trainingSession.seeObjectives' />
+            <button type="button"
+                class="btn btn-outline-dark btn-sm"
+                data-toggle="modal"
+                data-target="#modal-${modalId}">
+                <fmt:message
+                    key='seaddonsnt_trainingSession.seeObjectives' />
             </button>
         </div>
 
         <hr>
         <div class="pull-right">
             <span class="${badgeClass}">
-                <fmt:message key='seaddonsnt_trainingSession.levelOfExpertise.${levelOfExpertise}' />
+                <fmt:message
+                    key='seaddonsnt_trainingSession.levelOfExpertise.${levelOfExpertise}' />
             </span>
         </div>
         <p class="card-text">
             <span>
-                <fmt:formatDate pattern="dd MMM yyyy" value="${sessionDate}" />&nbsp;
-                <fmt:message key='label.time.from' />&nbsp;${startTime} &nbsp;
-                <fmt:message key='label.time.to' />&nbsp;${endTime}
+                <fmt:formatDate
+                    pattern="dd MMM yyyy"
+                    value="${sessionDate}" />
+                &nbsp;
+                <fmt:message
+                    key='label.time.from' />
+                &nbsp;${startTime} &nbsp;
+                <fmt:message
+                    key='label.time.to' />
+                &nbsp;${endTime}
             </span>
         </p>
         <p class="card-text">
             <strong>
-                <fmt:message key='seaddonsnt_trainingSession.location' />
+                <fmt:message
+                    key='seaddonsnt_trainingSession.location' />
             </strong>: ${location}
         </p>
         <p class="card-text pb-5">
-                <strong>
-                    <fmt:message key='seaddonsnt_trainingSession.instructorName' />
-                </strong>: ${instructorName}
-            </p>
+            <strong>
+                <fmt:message
+                    key='seaddonsnt_trainingSession.instructorName' />
+            </strong>: ${instructorName}
+        </p>
 
     </div>
     <div
@@ -139,9 +145,8 @@ type="org.jahia.services.render.URLGenerator"
                     </a>
                 </c:when>
                 <c:otherwise>
-                    </div>
-                </c:otherwise>
-             </c:choose>
         </div>
+        </c:otherwise>
+        </c:choose>
     </div>
 </div>

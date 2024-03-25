@@ -30,6 +30,7 @@
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
+<c:url value="${currentNode.url}" var="contentURL"/>
 
 
 <div class="teaser-card mb-2">
@@ -39,7 +40,7 @@
         </div>
         <div class="col-md-8">
             <div class="card-content">
-                <h6 class="card-title"><a href="#">${title}</a></h6>
+                <h6 class="card-title"><a href="${contentURL}">${title}</a></h6>
                 <p class="card-text">
                 <c:if test="${not empty categories}">
                     <c:forEach items="${categories}" var="category">
