@@ -71,14 +71,10 @@ type="org.jahia.services.render.URLGenerator"
 <template:include
     view="hidden.modal.objectives" />
 
-<div
-    class="card training-card d-flex flex-column">
+<div class="card training-card d-flex flex-column">
     <div class="card-body">
-
-        <h3 class="card-title">
-            ${sessionTitle} </h3>
-        <div class="card-text">
-            ${sessionDescription} </div>
+        <h3 class="card-title"><a href="${contentURL}" title="${sessionTitle}">${sessionTitle}</a> </h3>
+        <div class="card-text">${sessionDescription} </div>
         <div class="text-center">
             <button type="button"
                 class="btn btn-outline-dark btn-sm"
@@ -122,10 +118,8 @@ type="org.jahia.services.render.URLGenerator"
                     key='seaddonsnt_trainingSession.instructorName' />
             </strong>: ${instructorName}
         </p>
-
     </div>
-    <div
-        class="card-bottom d-flex justify-content-center align-items-center text-center">
+    <div class="card-bottom d-flex justify-content-center align-items-center text-center">
         <div class="card-text mt-auto">
             <c:choose>
                 <c:when
@@ -134,8 +128,7 @@ type="org.jahia.services.render.URLGenerator"
                         class="btn btn-primary btn-bottom">
                 </c:when>
                 <c:otherwise>
-                    <div
-                        class="btn btn-primary btn-bottom a-like">
+                    <div class="btn btn-primary btn-bottom a-like">
                 </c:otherwise>
             </c:choose>
             ${buttonLabel}
@@ -145,8 +138,9 @@ type="org.jahia.services.render.URLGenerator"
                     </a>
                 </c:when>
                 <c:otherwise>
+                    </div>
+            </c:otherwise>
+            </c:choose>
         </div>
-        </c:otherwise>
-        </c:choose>
     </div>
 </div>

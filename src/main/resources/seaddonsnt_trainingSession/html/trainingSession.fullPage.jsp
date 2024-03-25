@@ -55,9 +55,10 @@
     <c:set var="formatedDate" value="${formatedDate} ${from} ${startTime} ${to} ${endTime}"/>
 </c:if>
 
+<c:set var="randomNumber" value="${(Math.random() * 20).intValue() + 1}" />
 
 <div class="inner-page">
-    <div class="slider-item" style="background-image: url('https://picsum.photos/seed/picsum/1600/800');">
+    <div class="slider-item" style="background-image: url('https://picsum.photos/1600/800.webp?random=${randomNumber}');">
     </div>
 </div>
 

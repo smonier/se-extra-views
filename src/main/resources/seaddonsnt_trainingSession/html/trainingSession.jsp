@@ -77,8 +77,7 @@ type="org.jahia.services.render.URLGenerator"
 <template:include
     view="hidden.getLinkToURL" />
 
-<div
-    class="card training-card d-flex flex-column">
+<div class="card training-card d-flex flex-column">
     <div class="card-body">
         <h3 class="card-title">
             ${sessionTitle}</h3>
@@ -116,8 +115,7 @@ type="org.jahia.services.render.URLGenerator"
             </strong>: ${instructorName}</p>
         <br />
     </div>
-    <div
-        class="card-bottom d-flex justify-content-center align-items-center text-center">
+    <div class="card-bottom d-flex justify-content-center align-items-center text-center">
         <div class="card-text mt-auto">
             <c:choose>
                 <c:when
@@ -126,8 +124,7 @@ type="org.jahia.services.render.URLGenerator"
                         class="btn btn-primary btn-bottom">
                 </c:when>
                 <c:otherwise>
-                    <div
-                        class="btn btn-primary btn-bottom a-like">
+                    <div class="btn btn-primary btn-bottom a-like">
                 </c:otherwise>
             </c:choose>
             ${buttonLabel}
