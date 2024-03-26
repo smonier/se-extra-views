@@ -71,7 +71,7 @@
                 <h1>${titleEscaped}</h1>
                 <c:if test="${not empty categories}">
                     <c:forEach items="${categories}" var="category">
-                        <span class="badge badge-secondary"><a href="${homeUrl}/category.html?category=${category}&nodetype=${currentNode.primaryNodeType}">${category.node.displayableName}</a></span>&nbsp;
+                        <span class="badge badge-secondary"><a href="${homeUrl}/category.html?category=${category}">${category.node.displayableName}</a></span>&nbsp;
                     </c:forEach>
                 </c:if>
                 <div class="border-top border-bottom border-secondary pt-4 pb-4">

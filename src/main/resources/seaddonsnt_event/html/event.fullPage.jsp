@@ -16,6 +16,7 @@
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
+<c:url value="${url.base}${renderContext.site.home.path}" var="homeUrl"/>
 
 <c:set var="titleEscaped" value="${not empty title ? fn:escapeXml(title) : fn:escapeXml(currentNode.name)}"/>
 
@@ -58,7 +59,7 @@
                 <h1>${titleEscaped}</h1>
                 <c:if test="${not empty categories}">
                     <c:forEach items="${categories}" var="category">
-                        <span class="badge badge-secondary">${category.node.displayableName}</span>&nbsp;
+                        <span class="badge badge-secondary"><a href="${homeUrl}/category.html?category=${category}">${category.node.displayableName}</a></span>&nbsp;
                     </c:forEach>
                 </c:if>
                 <div class="border-top border-bottom border-secondary pt-4 pb-4">

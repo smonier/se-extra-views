@@ -17,32 +17,45 @@
     <legend>${fn:escapeXml(jcr:label(currentNode.primaryNodeType, currentResource.locale))}</legend>
 </c:if>
 
-
-<c:set var="sessionTitle" value="${currentNode.properties['sessionTitle'].string}"/>
-<c:set var="sessionDescription" value="${currentNode.properties['sessionDescription'].string}"/>
-<c:set var="sessionObjective" value="${currentNode.properties['sessionObjective'].string}"/>
-<c:set var="sessionDate" value="${currentNode.properties['sessionDate'].date}"/>
-<c:set var="startTime" value="${currentNode.properties['startTime'].string}"/>
-<c:set var="endTime" value="${currentNode.properties['endTime'].string}"/>
-<c:set var="location" value="${currentNode.properties['location'].string}"/>
-<c:set var="levelOfExpertise" value="${currentNode.properties['levelOfExpertise'].string}"/>
-<c:set var="instructorName" value="${currentNode.properties['instructorName'].string}"/>
-<c:set var="buttonLabel" value="${currentNode.properties['buttonLabel'].string}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
 <c:set var="noteType" value="${currentNode.primaryNodeType}"/>
 <c:url value="${currentNode.url}" var="contentURL" />
+<c:url value="${url.base}${renderContext.site.home.path}" var="homeUrl"/>
+
+<c:choose>
+    <c:when
+            test="${noteType == 'tint:content'}">
+        <c:set var="icon"
+               value="<i class='far fa-newspaper text-primary'></i>" />
+    </c:when>
+    <c:when
+            test="${noteType == 'seaddonsnt:event'}">
+        <c:set var="icon"
+               value="<i class='fas fa-calendar-day text-primary'></i>" />
+    </c:when>
+    <c:when
+            test="${noteType == 'seaddonsnt:trainingSession'}">
+        <c:set var="icon"
+               value="<i class='fas fa-graduation-cap text-primary'></i>" />
+    </c:when>
+    <c:otherwise>
+        <c:set var="icon"
+               value="<i class='far fa-file-alt text-primary'></i>" />
+    </c:otherwise>
+</c:choose>
+
 
 <c:set var="nodeTypeRB" value="${fn:replace(noteType, ':', '_')}" />
 
 <div class="card">
-    <h5 class="card-header"><fmt:message key='${nodeTypeRB}' /></h5>
-    <div class="card-body">
-        <h5 class="card-title">${title}</h5>
-        <p class="card-text">
+    <h6 class="card-header">${icon}&nbsp;&nbsp;<fmt:message key='${nodeTypeRB}' /></h6>
+    <div class="card-body  d-flex flex-column justify-content-between">
+        <h4 class="card-title">${title}</h4>
+        <p class="card-text text-end">
             <c:forEach items="${categories}" var="category">
-                <span class="badge badge-secondary">${category.node.displayableName}</span> &nbsp;
+                <span class="badge badge-secondary"><a href="${homeUrl}/category.html?category=${category}">${category.node.displayableName}</a></span>&nbsp;&nbsp;
             </c:forEach>
         </p>
         <a href="${contentURL}" class="btn btn-primary"><fmt:message key='label.readMore' /></a>
