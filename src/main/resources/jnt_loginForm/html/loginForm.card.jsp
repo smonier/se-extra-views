@@ -150,13 +150,13 @@ type="org.jahia.services.usermanager.JahiaUser" --%>
                                     </c:if>
                                     <c:if
                                         test="${empty picture}">
-                                        <img src="<c:url value='${url.currentModule}/images/userbig.png'/>"
+                                        <img src="<c:url value='${url.currentModule}/images/avatar.png'/>"
                                             alt="${renderContext.user.username}"
                                             border="0" />
                                     </c:if>
                                 </c:when>
                                 <c:otherwise>
-                                    <img src="<c:url value='${url.currentModule}/images/userbig.png'/>"
+                                    <img src="<c:url value='${url.currentModule}/images/avatar.png'/>"
                                         alt="${renderContext.user.username}"
                                         border="0" />
                                 </c:otherwise>

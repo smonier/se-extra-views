@@ -26,7 +26,7 @@
  - filter (weakreference, category[autoSelectParent=false])
  - j:subNodesView (string, choicelist[templates=seaddonsnt:event,resourceBundle,image]) nofulltext itemtype = layout
 
- [seaddonsnt:headingFromPage] > jnt:content, timix:content, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:headingFromPage] > jnt:content, timix:content, seaddonsmix:seUtilsEditorialComponents
 
 [seaddonsnt:foodMenu] > jnt:content, jmix:editorialContent, mix:title, jmix:structuredContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
  - title (string)
@@ -98,3 +98,6 @@
  [seaddonsmix:withPictogram] mixin
  extends = seaddonsnt:tile
  - pictoPicker (weakreference, picker[type='image']) mandatory < 'jmix:image'
+
+[seaddonsnt:contentByCategory] > jnt:content, jmix:list, jmix:cache, seaddonsmix:seUtilsEditorialComponents
+

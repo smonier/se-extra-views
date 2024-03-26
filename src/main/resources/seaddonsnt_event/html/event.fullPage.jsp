@@ -31,7 +31,7 @@
 <c:if test="${not empty endDate}">
     <c:set var="formatedDate" value="${formatedDate} ${at} ${endDate}"/>
 </c:if>
-
+<template:include view="hidden.getLinkToURL" />
 <c:set var="imageNode" value="${currentNode.properties['image'].node}"/>
 <template:addCacheDependency node="${imageNode}"/>
 <c:set var="width" value="${not empty currentResource.moduleParams.mediaWidth ? currentResource.moduleParams.mediaWidth : '1920'}"/>
@@ -85,5 +85,29 @@
                 ${body}
             </div>
         </div>
+    </div>
+    <div class="card-bottom d-flex justify-content-center align-items-center text-center">
+        <div class="card-text mt-auto">
+            <c:choose>
+            <c:when
+                    test="${not empty moduleMap.linkUrl}">
+            <a href="${moduleMap.linkUrl}"
+               class="btn btn-primary btn-bottom">
+                </c:when>
+                <c:otherwise>
+                <div class="btn btn-primary btn-bottom a-like">
+                    </c:otherwise>
+                    </c:choose>
+                    ${buttonLabel}
+                    <c:choose>
+                    <c:when
+                            test="${not empty moduleMap.linkUrl}">
+            </a>
+            </c:when>
+            <c:otherwise>
+        </div>
+        </c:otherwise>
+        </c:choose>
+    </div>
     </div>
 </section>

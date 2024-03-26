@@ -46,6 +46,8 @@
     </c:otherwise>
 </c:choose>
 
+<template:include view="hidden.getLinkToURL" />
+
 <fmt:message key="label.date.at" var="at"/>
 <fmt:message key="label.time.from" var="from"/>
 <fmt:message key="label.time.to" var="to"/>
@@ -56,7 +58,7 @@
 </c:if>
 
 <c:set var="randomNumber" value="${(Math.random() * 20).intValue() + 1}" />
-
+<c:url value="${url.base}${renderContext.site.home.path}" var="homeUrl"/>
 <div class="inner-page">
     <div class="slider-item" style="background-image: url('https://picsum.photos/1600/800.webp?random=${randomNumber}');">
     </div>
@@ -69,7 +71,7 @@
                 <h1>${titleEscaped}</h1>
                 <c:if test="${not empty categories}">
                     <c:forEach items="${categories}" var="category">
-                        <span class="badge badge-secondary">${category.node.displayableName}</span>&nbsp;
+                        <span class="badge badge-secondary"><a href="${homeUrl}/category.html?category=${category}&nodetype=${currentNode.primaryNodeType}">${category.node.displayableName}</a></span>&nbsp;
                     </c:forEach>
                 </c:if>
                 <div class="border-top border-bottom border-secondary pt-4 pb-4">
@@ -106,5 +108,29 @@
                 ${sessionObjective}
             </div>
         </div>
+    </div>
+    <div class="card-bottom d-flex justify-content-center align-items-center text-center">
+        <div class="card-text mt-auto">
+            <c:choose>
+            <c:when
+                    test="${not empty moduleMap.linkUrl}">
+            <a href="${moduleMap.linkUrl}"
+               class="btn btn-primary btn-bottom">
+                </c:when>
+                <c:otherwise>
+                <div class="btn btn-primary btn-bottom a-like">
+                    </c:otherwise>
+                    </c:choose>
+                    ${buttonLabel}
+                    <c:choose>
+                    <c:when
+                            test="${not empty moduleMap.linkUrl}">
+            </a>
+            </c:when>
+            <c:otherwise>
+        </div>
+        </c:otherwise>
+        </c:choose>
+    </div>
     </div>
 </section>
