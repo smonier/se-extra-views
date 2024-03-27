@@ -4,6 +4,7 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -18,6 +19,8 @@
 </c:if>
 
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+<c:set var="teaser" value="${currentNode.properties['teaser'].string}"/>
+
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
 <c:set var="noteType" value="${currentNode.primaryNodeType}"/>
@@ -58,6 +61,7 @@
                 <span class="badge badge-secondary"><a href="${homeUrl}/category.html?category=${category}">${category.node.displayableName}</a></span>&nbsp;&nbsp;
             </c:forEach>
         </p>
+        <p>${functions:abbreviate(functions:removeHtmlTags(teaser),100,150,'...')}</p>
         <a href="${contentURL}" class="btn btn-primary"><fmt:message key='label.readMore' /></a>
     </div>
 </div>
