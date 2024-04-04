@@ -80,8 +80,7 @@ type="org.jahia.services.render.URLGenerator"
                 class="btn btn-outline-dark btn-sm"
                 data-toggle="modal"
                 data-target="#modal-${modalId}">
-                <fmt:message
-                    key='seaddonsnt_trainingSession.seeObjectives' />
+                <fmt:message key='seaddonsnt_trainingSession.seeObjectives' />
             </button>
         </div>
 
