@@ -15,6 +15,8 @@
 <c:set var="image" value="${currentNode.properties['image'].node}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="description" value="${currentNode.properties['jcr:description'].string}"/>
+<c:set var="buttonLabel" value="${currentNode.properties['buttonLabel'].string}"/>
+
 <jcr:nodeProperty node="${currentNode}" name="j:defaultCategory" var="categories"/>
 <c:url value="${url.base}${renderContext.site.home.path}" var="homeUrl"/>
 
@@ -33,6 +35,7 @@
     <c:set var="formatedDate" value="${formatedDate} ${at} ${endDate}"/>
 </c:if>
 <template:include view="hidden.getLinkToURL" />
+
 <c:set var="imageNode" value="${currentNode.properties['image'].node}"/>
 <template:addCacheDependency node="${imageNode}"/>
 <c:set var="width" value="${not empty currentResource.moduleParams.mediaWidth ? currentResource.moduleParams.mediaWidth : '1920'}"/>
@@ -90,25 +93,18 @@
     <div class="card-bottom d-flex justify-content-center align-items-center text-center">
         <div class="card-text mt-auto">
             <c:choose>
-            <c:when
-                    test="${not empty moduleMap.linkUrl}">
-            <a href="${moduleMap.linkUrl}"
-               class="btn btn-primary btn-bottom">
+                <c:when test="${not empty moduleMap.linkUrl}">
+                    <a href="${moduleMap.linkUrl}"
+                       class="btn btn-primary btn-bottom">
+                             ${buttonLabel}
+                    </a>
                 </c:when>
                 <c:otherwise>
-                <div class="btn btn-primary btn-bottom a-like">
-                    </c:otherwise>
-                    </c:choose>
-                    ${buttonLabel}
-                    <c:choose>
-                    <c:when
-                            test="${not empty moduleMap.linkUrl}">
-            </a>
-            </c:when>
-            <c:otherwise>
+                    <div class="btn btn-primary btn-bottom a-like">
+                            ${buttonLabel}
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
-        </c:otherwise>
-        </c:choose>
-    </div>
     </div>
 </section>

@@ -12,11 +12,11 @@
  - startDate (date) facetable
  - endDate (date) facetable
  - location (string) i18n facetable
- - eventsType (string, choicelist[resourceBundle]) facetable  < gala,ceremony,seminary,party,retreat,meeting,consumerShow,roadShow,conference,show,pressConference
+ - eventsType (string, choicelist[resourceBundle]) facetable indexed=no < gala,ceremony,seminary,party,retreat,meeting,consumerShow,roadShow,conference,show,pressConference
  - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
  - image (weakreference, picker[type='image']) < 'jmix:image'
- - buttonLabel (string) internationalized
+ - buttonLabel (string) internationalized indexed=no
 
 
 [seaddonsnt:lastEvent] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
@@ -50,12 +50,12 @@
  - sessionDescription (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
  - sessionObjective (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
  - sessionDate (date)  
- - startTime (string)  
- - endTime (string)  
+ - startTime (string)  indexed=no
+ - endTime (string)  indexed=no
  - location (string)
- - levelOfExpertise (string, choicelist[resourceBundle]) < 'Beginner','Intermediate','Advanced','Expert'
- - instructorName (string)
- - buttonLabel (string) internationalized
+ - levelOfExpertise (string, choicelist[resourceBundle]) indexed=no < 'Beginner','Intermediate','Advanced','Expert'
+ - instructorName (string) indexed=no
+ - buttonLabel (string) internationalized indexed=no
 
 [seaddonsnt:trainingList] > jnt:content, jmix:list, mix:title, jmix:cache, seaddonsmix:seUtilsEditorialComponents
  - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
