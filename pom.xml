@@ -57,7 +57,7 @@
     <groupId>org.jahia.se.modules</groupId>
     <artifactId>se-extra-views</artifactId>
     <name>Additional Views on existant components</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <description>This is the custom module (Sample Module) for running on a Jahia server.</description>
 
