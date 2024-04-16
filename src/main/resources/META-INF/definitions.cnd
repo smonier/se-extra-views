@@ -4,6 +4,7 @@
 <seumix = 'http://modules.se.jahia.org/se-utils/mix/1.0'>
 <seaddonsnt = 'http://www.jahia.org/seaddons/nt/1.0'>
 <seaddonsmix = 'http://www.jahia.org/seaddons/mix/1.0'>
+<se = 'http://www.jahia.org/template/b4/seaddons/1.0'>
 
 [seaddonsmix:seUtilsEditorialComponents] > jmix:droppableContent, jmix:editorialContent mixin
 
@@ -101,3 +102,11 @@
 
 [seaddonsnt:contentByCategory] > jnt:content, jmix:list, jmix:cache, seaddonsmix:seUtilsEditorialComponents
 
+[seaddonsnt:listContentFromCat] > jnt:content, jmix:list, jmix:renderableList, jmix:queryContent, mix:title, jmix:cache, jmix:bindedComponent, seaddonsmix:seUtilsEditorialComponents
+ - se:type (string, choicelist[subnodetypes = 'jnt:page,jnt:content,jmix:editorialContent,jmix:retrievableContent',resourceBundle]) indexed=no mandatory
+ - se:criteria (string,choicelist[resourceBundle]) = 'jcr:created' autocreated indexed=no < 'jcr:created','jcr:lastModified','j:lastPublished'
+ - se:sortDirection (string, choicelist[resourceBundle]) = 'asc' autocreated indexed=no < 'asc','desc'
+ - se:maxItems (long) indexed=no
+ - se::startNode (weakreference)
+ - se::noResultsMessage (string) i18n indexed=no
+ - se:subNodesView (string, choicelist[templates=subnodes,resourceBundle,image,dependentProperties='j:type']) nofulltext itemtype = layout

@@ -65,11 +65,17 @@
     </div>
     <div class="fr-tile__header">
         <div class="fr-tile__pictogram">
-            <svg aria-hidden="true" class="fr-artwork --primary" viewBox="0 0 80 80" width="80px" height="80px">
-                <use class="fr-artwork-decorative" href="${pictoUrl}#artwork-decorative"></use>
-                <use class="fr-artwork-minor" href="${pictoUrl}#artwork-minor"></use>
-                <use class="fr-artwork-major" href="${pictoUrl}#artwork-major"></use>
-            </svg>
+            <c:if test="${not empty pictoUrl and fn:endsWith(fn:toLowerCase(pictoUrl), '.svg')}">
+                <svg aria-hidden="true" class="fr-artwork --primary" viewBox="0 0 80 80" width="80px" height="80px">
+                    <use class="fr-artwork-decorative" href="${pictoUrl}#artwork-decorative"></use>
+                    <use class="fr-artwork-minor" href="${pictoUrl}#artwork-minor"></use>
+                    <use class="fr-artwork-major" href="${pictoUrl}#artwork-major"></use>
+                </svg>
+            </c:if>
+
+            <c:if test="${not empty pictoUrl and not fn:endsWith(fn:toLowerCase(pictoUrl), '.svg')}">
+                <img src="${pictoUrl}" class="fr-artwork --primary" viewBox="0 0 80 80" width="50px" height="50px">
+            </c:if>
         </div>
     </div>
 </div>

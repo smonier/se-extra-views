@@ -1,3 +1,8 @@
+.col-md-6 {
+  display: flex !important;
+  flex: 1 0 50% !important; /* Adjust the flex basis to match the column size if needed */
+}
+
 .fr-tile {
     --text-spacing: 0;
     --title-spacing: 0 0 0.25rem;
