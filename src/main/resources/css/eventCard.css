@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #f81700; /* Placeholder for $bermuda */
+  background-color: var(--primary); /* Placeholder for $bermuda */
   color: #ffffff; /* Placeholder for $white */
   padding: 0.8em;
 }
@@ -89,7 +89,7 @@
 .event-card .menu-content li {
   width: 33.333333%;
   float: left;
-  background-color: #f81700; /* Placeholder for $bermuda */
+  background-color: var(--primary);
   height: 60px;
   position: relative;
 }
