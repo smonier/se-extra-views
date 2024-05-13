@@ -4,6 +4,7 @@
 <%@ taglib prefix="utility" uri="http://www.jahia.org/tags/utilityLib" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="seutils" uri="https://www.se-extra-views.jahia.com/jahia/tags/1.0" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -39,7 +40,7 @@
 
         <div class="card j-owl-carousel-card-edit">
             <c:choose>
-                <c:when test="${not empty image.url}">
+                <c:when test="${not empty videoPoster.url}">
                          <img class="card-img-top" src="${videoPoster.url}" alt="Card thumbnail" itemprop="thumbnail">
                 </c:when>
                 <c:otherwise>
@@ -53,7 +54,7 @@
                         </c:when>
                         <c:when test="${fn:toLowerCase(videoSource) == 'wistia'}">
                             <img class="card-img-top"
-                                 data-src="${videoId}"
+                                 src="${seutils:fetchThumbnailUrl(videoId)}"
                                  id="wistia-thumbnail-${videoId}"
                                  alt="${title}"/>
 

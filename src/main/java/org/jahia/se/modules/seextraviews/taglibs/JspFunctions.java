@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import org.jahia.api.Constants;
 import org.jahia.services.content.JCRContentUtils;
 import org.jahia.services.content.JCRNodeWrapper;
+import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.text.ParseException;
@@ -23,6 +24,11 @@ import java.util.Calendar;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONObject;
 
 public final class JspFunctions {
     private static final Logger logger = LoggerFactory.getLogger(JspFunctions.class);
@@ -111,6 +117,50 @@ public final class JspFunctions {
         } catch (ParseException e) {
             e.printStackTrace(); // Handle parsing exceptions.
             return null; // Or handle it in another way that fits your application's requirements.
+        }
+    }
+
+    public static String fetchThumbnailUrl(String videoId) {
+        // Build the URL from the videoId
+        String urlString = String.format(
+                "http://fast.wistia.net/oembed?url=http://home.wistia.com/medias/%s&embedType=async&videoWidth=640",
+                videoId
+        );
+
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+            // Set request method to GET
+            connection.setRequestMethod("GET");
+
+            // Set request headers if necessary, e.g., for authentication or setting accept type
+            connection.setRequestProperty("Accept", "application/json");
+
+            // Check response code
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) { // success
+                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                // Convert response to JSONObject and extract the thumbnail_url
+                JSONObject jsonResponse = new JSONObject(response.toString());
+                logger.info("Wistia Thumbnail URL: " + jsonResponse.getString("thumbnail_url"));
+                return jsonResponse.getString("thumbnail_url");
+
+            } else {
+                logger.error("GET request not successful. Response code: " + responseCode);
+                return null;
+            }
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 

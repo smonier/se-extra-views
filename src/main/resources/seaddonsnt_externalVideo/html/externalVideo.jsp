@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr" %>
+<%@ taglib prefix="seutils" uri="https://www.se-extra-views.jahia.com/jahia/tags/1.0" %>
+
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -20,7 +22,7 @@
 
 <c:set var="caption" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="itemWidth" value="${currentNode.parent.properties['itemWidth'].string}"/>
-<c:set var="videoID" value="${currentNode.properties['videoId'].string}"/>
+<c:set var="videoId" value="${currentNode.properties['videoId'].string}"/>
 <c:set var="videoSource" value="${currentNode.properties['videoService'].string}"/>
 <c:set var="rand">
     <%= java.lang.Math.round(java.lang.Math.random() * 10000) %>
@@ -39,13 +41,13 @@
             <div class="modal-body mb-0 p-0">
                 <c:choose>
                     <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
-                        <c:set var="videoURL" value="https://player.vimeo.com/video/${videoID}"/>
+                        <c:set var="videoURL" value="https://player.vimeo.com/video/${videoId}"/>
                     </c:when>
                     <c:when test="${fn:toLowerCase(videoSource) == 'wistia'}">
-                        <c:set var="videoURL" value="https://fast.wistia.net/embed/iframe/${videoID}"/>
+                        <c:set var="videoURL" value="https://fast.wistia.net/embed/iframe/${videoId}"/>
                     </c:when>
                     <c:otherwise>
-                        <c:set var="videoURL" value="https://www.youtube.com/embed/${videoID}"/>
+                        <c:set var="videoURL" value="https://www.youtube.com/embed/${videoId}"/>
                     </c:otherwise>
                 </c:choose>
                 <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
@@ -56,7 +58,6 @@
             </div>
             <!--Footer-->
             <div class="modal-footer justify-content-center">
-
                 <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">
                     Close
                 </button>
@@ -84,18 +85,19 @@
                 <c:choose>
                     <c:when test="${fn:toLowerCase(videoSource) == 'vimeo'}">
                         <img class="img-fluid thumb zoom"
-                             srcset="https://vumbnail.com/${videoID}.jpg 640w, https://vumbnail.com/${videoID}_large.jpg 640w, https://vumbnail.com/${videoID}_medium.jpg 200w, https://vumbnail.com/${videoID}_small.jpg 100w"
+                             srcset="https://vumbnail.com/${videoId}.jpg 640w, https://vumbnail.com/${videoId}_large.jpg 640w, https://vumbnail.com/${videoId}_medium.jpg 200w, https://vumbnail.com/${videoId}_small.jpg 100w"
                              sizes="(max-width: 640px) 100vw, 640px"
-                             src="https://vumbnail.com/${videoID}.jpg"
+                             src="https://vumbnail.com/${videoId}.jpg"
                              itemprop="thumbnail" alt="${caption}"
                              style="width: ${itemWidth}px"
                              data-toggle="modal"
                              data-target="#${modalId}"/>
                     </c:when>
                     <c:when test="${fn:toLowerCase(videoSource) == 'wistia'}">
+
                         <img class="img-fluid thumb zoom"
-                             data-src="${videoID}"
-                             id="wistia-thumbnail-${videoID}"
+                             src="${seutils:fetchThumbnailUrl(videoId)}"
+                             id="wistia-thumbnail-${videoId}"
                              itemprop="thumbnail" alt="${caption}"
                              style="width: ${itemWidth}px"
                              data-toggle="modal"
@@ -105,7 +107,7 @@
                     <c:otherwise>
 
                         <img class="img-fluid thumb zoom"
-                             src="https://img.youtube.com/vi/${videoID}/maxresdefault.jpg"
+                             src="https://img.youtube.com/vi/${videoId}/maxresdefault.jpg"
                              itemprop="thumbnail"
                              alt="${caption}"
                              style="width: ${itemWidth}px"
@@ -122,27 +124,6 @@
 <!-- Grid column -->
 
 <script>
-    $(document).ready(function () {
-        //https://wistia.com/support/developers/oembed
-        const wistiaID = $("#wistia-thumbnail-${videoID}").data("src");
-        const wistiaWidth = 640;
-        // iframe, async, async_popover, playlist_iframe, playlist_api, playlist_popver, and open_graph_tag
-        const wistiaType = "async_popover";
-        const popoverWidth = 640;
-        const popoverHeight = 350;
-        $.get(
-            "https://fast.wistia.net/oembed?url=http://home.wistia.com/medias/" +
-            wistiaID + "?embedType="+wistiaType+"&videoWidth=900&popoverWidth="+popoverWidth+"&popoverHeight="+popoverHeight,
-            function (data) {
-                console.log(data); // HTML content of the jQuery.ajax page
-
-                thumbnail_url =
-                    data.thumbnail_url + "&" + "image_resize=" + wistiaWidth;
-                $("#wistia-thumbnail-${videoID}").attr("src", thumbnail_url);
-                $("#wistia-embed").html(data.html);
-            }
-        );
-    });
 
     $(function(){
         $('#${modalId}').on('hidden.bs.modal', function (e) {
