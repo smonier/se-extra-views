@@ -79,7 +79,8 @@
  - videoTeaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
  - featuredVideo (boolean)
 
-[seaddonsnt:videoGallery] > jnt:content, mix:title, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:videoGallery] > jnt:content, mix:title, jmix:list, seaddonsmix:seUtilsEditorialComponents
+ orderable
  + * (seaddonsnt:internalVideo)
  + * (seaddonsnt:externalVideo)
 
