@@ -1,0 +1,69 @@
+/* Set a fixed height for the card */
+.article-card {
+    text-decoration: none; /* Remove underline */
+    overflow: hidden; /* Ensure zoomed image doesn't overflow */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card */
+    border: none; /* Remove border */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow on hover */
+    position: relative; /* Ensure overlay positions correctly */
+    height: 400px; /* Fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure the card image covers the card without distortion */
+.article-card .card-img {
+    height: 100%; /* Make the image fill the card's height */
+    width: 100%; /* Make the image fill the card's width */
+    object-fit: cover; /* Scale the image to cover the container */
+    object-position: center; /* Center the image */
+}
+
+/* Add hover effect to scale the image */
+.article-card:hover .card-img {
+    transform: scale(1.05); /* Slight zoom on hover */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Darken overlay on hover */
+.article-card:hover .card-img-overlay {
+    background: rgba(0, 0, 0, 0.8); /* Slightly darker on hover */
+    transition: background 0.3s ease-in-out;
+}
+
+/* Default overlay styles */
+.card-img-overlay {
+    position: absolute;
+    bottom: 0; /* Align overlay to the bottom */
+    left: 0;
+    right: 0;
+    /* height: 30%; Overlay height */
+    background: rgba(0, 0, 0, 0.5); /* Default semi-transparent black */
+    color: white;
+    padding: 1rem; /* Add space inside overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Ensure content stays at the bottom of the overlay */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Add text shadow for readability */
+}
+
+/* Title styling */
+.card-title {
+    color: white !important;
+    font-size: 1.25rem; /* Adjust font size */
+    margin-bottom: 0.5rem; /* Add space below title */
+}
+
+/* Text styling */
+.card-text {
+    color: white !important;
+    font-size: 0.9rem; /* Smaller font size for teaser text */
+    line-height: 1.4; /* Improve readability */
+}
+
+/* Make text inside the overlay bigger */
+.article-card .card-img-overlay h5, /* Target headings */
+.article-card .card-img-overlay p { /* Target paragraphs */
+    font-size: 1.2rem; /* Default size */
+    transition: font-size 0.4s ease-in-out; /* Smooth transition */
+}

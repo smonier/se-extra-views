@@ -111,3 +111,36 @@
  - se::startNode (weakreference)
  - se::noResultsMessage (string) i18n indexed=no
  - se:subNodesView (string, choicelist[templates=subnodes,resourceBundle,image,dependentProperties='j:type']) nofulltext itemtype = layout
+
+[seaddonsmix:withRegistration] mixin
+ extends = jnt:loginForm
+ - buttonLabel (string) i18n
+ - registrationPage (weakreference, picker[type='page']) mandatory < 'jnt:page'
+
+
+[seaddonsnt:fileList] > jnt:content, jmix:listContent, jmix:editorialContent, jmix:bindedComponent, jmix:link
+ - folder (weakreference, picker[type='folder'])
+ - se:maxItems (long) indexed=no
+ - useNodeNameAsTitle (boolean) = 'true' autocreated
+
+ [seaddonsnt:lastContent] > jnt:content, jmix:list, mix:title, seaddonsmix:seUtilsEditorialComponents, jmix:cache
+   - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+   - maxItems (long) = 5 indexed=no
+   - folder (weakreference, picker[type='contentfolder'])
+   - filter (weakreference, category[autoSelectParent=false])
+   - j:subNodesView (string, choicelist[templates=tint:content,resourceBundle,image]) nofulltext
+
+ [seaddonsnt:agencyBanner] > jnt:content, seaddonsmix:seUtilsEditorialComponents, seumix:linkTo, mix:title
+   - jcr:title (string) i18n primary mandatory
+   - description (string, textarea) i18n
+   - backgroundImg (weakreference, picker[type='image'])
+   - posterImg (weakreference, picker[type='image'])
+
+[seaddonsnt:recipe] > jnt:content, jmix:editorialContent, mix:title, jmix:structuredContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
+ - image (weakreference, picker[type='image']) < 'jmix:image'
+ - difficulty (long)
+ - serves (long)
+ - preparation (string)
+ - cooking (string)
+ - ingredients (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - instructions (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized

@@ -74,7 +74,14 @@ type="org.jahia.services.usermanager.JahiaUser" --%>
             <input type="submit" name="loginButton"
                 class="btn btn-primary"
                 value="<fmt:message key='loginForm.loginbutton.label'/>" />
+            &nbsp;&nbsp;
+            <c:if test="${jcr:isNodeType(currentNode, 'seaddonsmix:withRegistration')}">
+                <c:set var="linkedNode" value="${currentNode.properties['registrationPage'].node}"/>
+                <c:set var="linkUrl" value="${linkedNode.getUrl()}"/>
+                <a href="${linkUrl}" class="btn btn-primary" target="_self">${currentNode.properties['buttonLabel'].string}</a>
+            </c:if>
         </div>
+
     </ui:loginArea>
         
 </c:if>
