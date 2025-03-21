@@ -72,6 +72,23 @@
                   <main-resource-display j:mainResourceView="fullPage" jcr:primaryType="jnt:mainResourceDisplay"/>
                </pagecontent>
             </event-content-template>
+            <recipe-content-template j:applyOn="seaddonsnt:recipe"
+                                    j:defaultTemplate="true"
+                                    j:hiddenTemplate="false"
+                                    jcr:primaryType="jnt:contentTemplate">
+               <j:translation_en jcr:language="en"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="recipe content template"/>
+               <j:translation_fr jcr:language="fr"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="recipe content template"/>
+               <pagecontent jcr:mixinTypes="jmix:systemNameReadonly"
+                            jcr:primaryType="jnt:contentList">
+                  <main-resource-display j:mainResourceView="fullPage" jcr:primaryType="jnt:mainResourceDisplay"/>
+               </pagecontent>
+            </recipe-content-template>
          </templates>
       </se-extra-views>
    </modules>

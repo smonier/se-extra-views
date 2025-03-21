@@ -14,47 +14,19 @@
 <c:set var="serves" value="${currentNode.properties['serves'].long}"/>
 <c:set var="preparation" value="${currentNode.properties['preparation'].string}"/>
 <c:set var="cooking" value="${currentNode.properties['cooking'].string}"/>
-<c:set var="ingredients" value="${currentNode.properties['ingredients'].string}"/>
-<c:set var="instructions" value="${currentNode.properties['instructions'].string}"/>
-
 <c:url value="${currentNode.url}" var="contentURL"/>
 
-<div class="inner-page">
-    <div class="slider-item" style="background-image: url('${image.url}');">
-        <div class="container">
-            <div class="row slider-text align-items-center justify-content-center">
-                <div class="col-md-8 text-center col-sm-12 pt-5 element-animate">
-                    <h1 class="pt-5"><span>${title}</span></h1>
-                    <%-- --%>
-                    <div>
-                        <c:forEach begin="1" end="5" var="i">
-                            <c:choose>
-                                <c:when test="${i <= difficulty}">
-                                    <span class="star filled">&#9733;</span>
-                                </c:when>
-                                <c:otherwise>
-                                    <span class="star">&#9734;</span>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
-                    </div>                    <%--                    <h1 class="pt-5"><span>About Us</span></h1>--%>
-                    <%--                    <p class="mb-5 w-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero sit, saepe? Rem, libero repellendus eum.</p>--%>
-                </div>
-            </div>
-        </div>
+
+<div class="food-card">
+    <div class="food-card_img">
+        <img src="${image.url}" alt="">
     </div>
-</div>
-
-<div class="container recipe-full-view mt-4">
-    <div class="row">
-        <!-- Left Column: Image and Recipe Details -->
-        <div class="col-md-6 text-center">
-            <c:if test="${not empty image}">
-                <img class="img-fluid rounded shadow mb-3" src="${image.url}" alt="${currentNode.displayableName}" />
-            </c:if>
-            <h3 class="pt-5"><span>${title}</span></h3>
-
-            <ul class="list-group list-group-flush text-left ml-5 mt-5">
+    <div class="food-card_content">
+        <div class="food-card_title-section">
+            <a href="${contentURL}" class="food-card_title">${title}</a>
+        </div>
+        <div class="food-card_author">
+            <ul class="list-group list-group-flush text-left">
                 <li class="d-flex align-items-center"><i class="fas fa-chart-bar m-3"></i> <strong>Difficulty:</strong>
                     <div class="ml-3">
                         <c:forEach begin="1" end="5" var="i">
@@ -73,7 +45,9 @@
                 <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3">Preparation Time:</strong>   ${preparation}</li>
                 <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3">Cooking Time:</strong>   ${cooking}</li>
             </ul>
-            <div class="space-between mt-5">
+        </div>
+        <div class="food-card_bottom-section">
+            <div class="space-between">
                 <div class="pull-right">
                     <jcr:nodeProperty node="${currentNode}" name="j:tagList" var="tags"/>
                     <c:if test="${tags != null}">
@@ -83,18 +57,11 @@
                     </c:if>
                 </div>
             </div>
-        </div>
-
-        <!-- Right Column: Ingredients and Instructions -->
-        <div class="col-md-6">
-<%--            <h2><i class="bi bi-list-ul"></i> Ingredients</h2>--%>
-            <div class="recipe-content">
-                ${ingredients}
-            </div>
-
-<%--            <h2 class="mt-4"><i class="bi bi-journal-text"></i> Instructions</h2>--%>
-            <div class="recipe-content">
-                ${instructions}
+            <hr>
+            <div class="btn-container mb-2">
+                <a class="btn btn-primary" href="${contentURL}">
+                    View recipe
+                </a>
             </div>
         </div>
     </div>

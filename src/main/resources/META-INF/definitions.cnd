@@ -144,3 +144,10 @@
  - cooking (string)
  - ingredients (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
  - instructions (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+
+
+ [seaddonsnt:quoteBanner] > jnt:content, seaddonsmix:seUtilsEditorialComponents, seumix:linkTo, mix:title
+   - jcr:title (string) i18n primary mandatory
+   - qhoteText (string, textarea) i18n
+   - author (string)
+   - backgroundImg (weakreference, picker[type='image'])  < 'jmix:image'

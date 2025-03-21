@@ -1,0 +1,21 @@
+.slider-text-box {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5); /* Light transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 50%;
+}
+.slider-text-content {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+@media (max-width: 768px) {
+    .slider-text-box {
+        max-width: 90%;
+        left: 2%;
+    }
+}

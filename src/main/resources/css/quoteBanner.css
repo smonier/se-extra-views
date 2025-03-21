@@ -1,0 +1,34 @@
+.quote-banner {
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+/* Semi-transparent overlay */
+.quote-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+}
+
+/* Quote content */
+.quote-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.5rem;
+}
+
+.quote-author {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    font-style: italic;
+    color: #f8d210;
+}
