@@ -78,7 +78,7 @@
                     <jcr:nodeProperty node="${currentNode}" name="j:tagList" var="tags"/>
                     <c:if test="${tags != null}">
                         <c:forEach items="${tags}" var="tag">
-                            <span class="badge badge-primary">${tag}</span>
+                            <span class="badge badge-success">${tag}</span>
                         </c:forEach>
                     </c:if>
                 </div>

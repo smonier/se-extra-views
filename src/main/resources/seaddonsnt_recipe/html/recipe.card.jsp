@@ -16,6 +16,17 @@
 <c:set var="cooking" value="${currentNode.properties['cooking'].string}"/>
 <c:url value="${currentNode.url}" var="contentURL"/>
 
+<template:include view="hidden.schema.org">
+    <template:param name="title" value="${title}"/>
+    <template:param name="serves" value="${serves}"/>
+    <template:param name="image" value="${image.url}"/>
+    <template:param name="preparation" value="${preparation}"/>
+    <template:param name="cooking" value="${cooking}"/>
+
+    <template:param name="ingredients" value="${fn:escapeXml(currentNode.properties['ingredients'].string)}"/>
+    <template:param name="instructions" value="${currentNode.properties['instructions'].string}"/>
+    <template:param name="difficulty" value="${currentNode.properties['difficulty'].string}"/>
+</template:include>
 
 <div class="food-card">
     <div class="food-card_img">
@@ -52,7 +63,7 @@
                     <jcr:nodeProperty node="${currentNode}" name="j:tagList" var="tags"/>
                     <c:if test="${tags != null}">
                         <c:forEach items="${tags}" var="tag">
-                            <span class="badge badge-primary">${tag}</span>
+                            <span class="badge badge-success">${tag}</span>
                         </c:forEach>
                     </c:if>
                 </div>
