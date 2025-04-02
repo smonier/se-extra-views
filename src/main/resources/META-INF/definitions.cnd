@@ -151,3 +151,6 @@
    - qhoteText (string, textarea) i18n
    - author (string)
    - backgroundImg (weakreference, picker[type='image'])  < 'jmix:image'
+
+ [seaddonsnt:fullWidthBanner] > jnt:content, seaddonsmix:seUtilsEditorialComponents, seumix:linkTo, mix:title
+   - backgroundImg (weakreference, picker[type='image'])  < 'jmix:image'
