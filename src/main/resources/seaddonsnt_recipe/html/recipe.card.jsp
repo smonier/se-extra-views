@@ -15,6 +15,7 @@
 <c:set var="preparation" value="${currentNode.properties['preparation'].string}"/>
 <c:set var="cooking" value="${currentNode.properties['cooking'].string}"/>
 <c:url value="${currentNode.url}" var="contentURL"/>
+<c:set var="categories" value="${currentNode.properties['j:defaultCategory']}"/>
 
 <template:include view="hidden.schema.org">
     <template:param name="title" value="${title}"/>
@@ -22,9 +23,6 @@
     <template:param name="image" value="${image.url}"/>
     <template:param name="preparation" value="${preparation}"/>
     <template:param name="cooking" value="${cooking}"/>
-
-    <template:param name="ingredients" value="${fn:escapeXml(currentNode.properties['ingredients'].string)}"/>
-    <template:param name="instructions" value="${currentNode.properties['instructions'].string}"/>
     <template:param name="difficulty" value="${currentNode.properties['difficulty'].string}"/>
 </template:include>
 
@@ -37,8 +35,8 @@
             <a href="${contentURL}" class="food-card_title">${title}</a>
         </div>
         <div class="food-card_author">
-            <ul class="list-group list-group-flush text-left">
-                <li class="d-flex align-items-center"><i class="fas fa-chart-bar m-3"></i> <strong>Difficulty:</strong>
+            <ul class="list-group list-group-flush text-left ml-5 mt-5">
+                <li class="d-flex align-items-center"><i class="fas fa-chart-bar m-3"></i> <strong><fmt:message key='seaddonsnt_recipe.difficulty'/>:</strong>
                     <div class="ml-3">
                         <c:forEach begin="1" end="5" var="i">
                             <c:choose>
@@ -52,14 +50,21 @@
                         </c:forEach>
                     </div>
                 </li>
-                <li class="d-flex align-items-center"><i class="fas fa-users m-3"></i> <strong class="mr-3">Serves:</strong>   ${serves}</li>
-                <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3">Preparation Time:</strong>   ${preparation}</li>
-                <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3">Cooking Time:</strong>   ${cooking}</li>
+                <li class="d-flex align-items-center"><i class="fas fa-users m-3"></i> <strong class="mr-3"><fmt:message key='seaddonsnt_recipe.serves'/>:</strong>   ${serves}</li>
+                <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3">Preparation Time:</strong> <fmt:message key='recipe.label.time.${preparation}'/></li>
+                <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3">Cooking Time:</strong> <fmt:message key='recipe.label.time.${cooking}'/> </li>
             </ul>
         </div>
         <div class="food-card_bottom-section">
             <div class="space-between">
                 <div class="pull-right">
+                    <c:if test="${categories != null}">
+                        <c:forEach items="${categories}" var="category">
+                <span class="badge badge-secondary">
+                        ${category.node.displayableName}
+                </span>
+                        </c:forEach>
+                    </c:if>
                     <jcr:nodeProperty node="${currentNode}" name="j:tagList" var="tags"/>
                     <c:if test="${tags != null}">
                         <c:forEach items="${tags}" var="tag">
@@ -71,7 +76,7 @@
             <hr>
             <div class="btn-container mb-2">
                 <a class="btn btn-primary" href="${contentURL}">
-                    View recipe
+                    <fmt:message key='recipe.label.view'/>
                 </a>
             </div>
         </div>

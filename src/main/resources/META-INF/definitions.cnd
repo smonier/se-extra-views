@@ -142,8 +142,8 @@
  - serves (long)
  - preparation (string)
  - cooking (string)
- - ingredients (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
- - instructions (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/small.js']) internationalized
+ - ingredients (string) multiple internationalized
+ - instructions (string) multiple internationalized
 
 
  [seaddonsnt:quoteBanner] > jnt:content, seaddonsmix:seUtilsEditorialComponents, seumix:linkTo, mix:title

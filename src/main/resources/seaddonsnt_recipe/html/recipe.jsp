@@ -14,10 +14,20 @@
 <c:set var="serves" value="${currentNode.properties['serves'].long}"/>
 <c:set var="preparation" value="${currentNode.properties['preparation'].string}"/>
 <c:set var="cooking" value="${currentNode.properties['cooking'].string}"/>
-<c:set var="ingredients" value="${currentNode.properties['ingredients'].string}"/>
-<c:set var="instructions" value="${currentNode.properties['instructions'].string}"/>
+<c:set var="ingredients" value="${currentNode.properties['ingredients']}"/>
+<c:set var="instructions" value="${currentNode.properties['instructions']}"/>
+<c:set var="categories" value="${currentNode.properties['j:defaultCategory']}"/>
 
 <c:url value="${currentNode.url}" var="contentURL"/>
+
+<template:include view="hidden.schema.org">
+    <template:param name="title" value="${title}"/>
+    <template:param name="serves" value="${serves}"/>
+    <template:param name="image" value="${image.url}"/>
+    <template:param name="preparation" value="${preparation}"/>
+    <template:param name="cooking" value="${cooking}"/>
+    <template:param name="difficulty" value="${currentNode.properties['difficulty'].string}"/>
+</template:include>
 
 <div class="inner-page">
     <div class="slider-item" style="background-image: url('${image.url}');">
@@ -55,7 +65,7 @@
             <h3 class="pt-5"><span>${title}</span></h3>
 
             <ul class="list-group list-group-flush text-left ml-5 mt-5">
-                <li class="d-flex align-items-center"><i class="fas fa-chart-bar m-3"></i> <strong>Difficulty:</strong>
+                <li class="d-flex align-items-center"><i class="fas fa-chart-bar m-3"></i> <strong><fmt:message key='seaddonsnt_recipe.difficulty'/>:</strong>
                     <div class="ml-3">
                         <c:forEach begin="1" end="5" var="i">
                             <c:choose>
@@ -69,12 +79,20 @@
                         </c:forEach>
                     </div>
                 </li>
-                <li class="d-flex align-items-center"><i class="fas fa-users m-3"></i> <strong class="mr-3">Serves:</strong>   ${serves}</li>
-                <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3">Preparation Time:</strong>   ${preparation}</li>
-                <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3">Cooking Time:</strong>   ${cooking}</li>
+                <li class="d-flex align-items-center"><i class="fas fa-users m-3"></i> <strong class="mr-3"><fmt:message key='seaddonsnt_recipe.serves'/>:</strong>   ${serves}</li>
+                <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3"><fmt:message key='recipe.label.preparation'/>:</strong> <fmt:message key='recipe.label.time.${preparation}'/></li>
+                <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3"><fmt:message key='recipe.label.cooking'/>:</strong> <fmt:message key='recipe.label.time.${cooking}'/> </li>
             </ul>
             <div class="space-between mt-5">
                 <div class="pull-right">
+                    <c:if test="${categories != null}">
+                        <c:forEach items="${categories}" var="category">
+                <span class="badge badge-secondary">
+                        ${category.node.displayableName}
+                </span>
+                        </c:forEach>
+                    </c:if>
+
                     <jcr:nodeProperty node="${currentNode}" name="j:tagList" var="tags"/>
                     <c:if test="${tags != null}">
                         <c:forEach items="${tags}" var="tag">
@@ -87,15 +105,48 @@
 
         <!-- Right Column: Ingredients and Instructions -->
         <div class="col-md-6">
-<%--            <h2><i class="bi bi-list-ul"></i> Ingredients</h2>--%>
+<%--            --%>
             <div class="recipe-content">
-                ${ingredients}
+                <h2><i class="bi bi-list-ul"></i> <fmt:message key='seaddonsnt_recipe.ingredients'/></h2>
+                <ul>
+                <c:forEach var="ingredient" items="${ingredients}" varStatus="status">
+                    <li>${ingredient}</li>
+                </c:forEach>
+                </ul>
             </div>
 
-<%--            <h2 class="mt-4"><i class="bi bi-journal-text"></i> Instructions</h2>--%>
+<%--            --%>
             <div class="recipe-content">
-                ${instructions}
+                <h2 class="mt-4"><i class="bi bi-journal-text"></i> <fmt:message key='seaddonsnt_recipe.instructions'/></h2>
+                <ol>
+                <c:forEach var="instruction" items="${instructions}" varStatus="status">
+                    <li>${instruction}</li>
+                </c:forEach>
+                </ol>
             </div>
+        </div>
+    </div>
+
+</div>
+<div class="section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8 text-center">
+                <h2><fmt:message key='recipe.label.youlike'/></h2>
+            </div>
+        </div>
+        <div class="row">
+            <template:include view="hidden.load"/>
+            <c:set var="listQuery" value="${moduleMap.listQuery}"/>
+            <jcr:jqom var="result" qomBeanName="listQuery" />
+
+            <c:forEach items="${result.nodes}" var="node">
+                <c:if test="${node.identifier != currentNode.identifier}">
+                    <div class="col-md-4 d-flex align-items-stretch mb-3">
+                            <template:module view="queryCard" node="${node}"/>
+                    </div>
+                </c:if>
+            </c:forEach>
         </div>
     </div>
 </div>

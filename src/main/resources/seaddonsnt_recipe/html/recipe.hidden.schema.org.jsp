@@ -13,7 +13,8 @@
         <c:set var="categories" value="${categories} > "/>
     </c:if>
 </c:forEach>
-
+<c:set var="ingredients" value="${currentNode.properties['ingredients']}"/>
+<c:set var="instructions" value="${currentNode.properties['instructions']}"/>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org/",
@@ -23,22 +24,16 @@
         "image": "${currentResource.moduleParams.image}",
     </c:if>
     "recipeYield":"${currentResource.moduleParams.serves}",
-    "prepTime": "PT20M",
-    "cookTime": "PT40M",
-<%--    "prepTime":"${currentResource.moduleParams.preparation}",--%>
-<%--    "cookTime":"${currentResource.moduleParams.cooking}",--%>
-<%--    "recipeIngredient":"${currentResource.moduleParams.ingredients}",--%>
+    "prepTime":"${currentResource.moduleParams.preparation}",
+    "cookTime":"${currentResource.moduleParams.cooking}",
     "recipeIngredient": [
-        {
-          "@value": "200g de farine",
-          "inLanguage": "${currentResource.locale.language}"
-        },
-        {
-          "@value": "3 œufs",
-          "inLanguage": "${currentResource.locale.language}"
-        }
+    <c:forEach var="ingredient" items="${ingredients}" varStatus="status">
+            {
+              "@value": "${ingredient}",
+              "inLanguage": "${currentResource.locale.language}"
+            }<c:if test="${!status.last}"> </c:if>
+    </c:forEach>
     ],
-<%--    "recipeInstructions":"${currentResource.moduleParams.instructions}",--%>
     "recipeInstructions": {
         "@type": "ItemList",
         "itemListElement": [
@@ -47,7 +42,7 @@
                     "@type": "HowToStep",
                     "position": ${status.index + 1},
                     "text": "${instruction}"
-                }<c:if test="${!status.last}">, </c:if>
+                }<c:if test="${!status.last}"> </c:if>
             </c:forEach>
         ]
       },
@@ -61,7 +56,7 @@
     <c:if test="${tags != null}">
         "keywords": [
         <c:forEach var="tag" items="${tags}" varStatus="status">
-            "${tag}"<c:if test="${!status.last}">, </c:if>
+            "${tag}"<c:if test="${!status.last}"> </c:if>
         </c:forEach>
         ]
     </c:if>

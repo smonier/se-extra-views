@@ -1,0 +1,300 @@
+{
+  "name": "seaddonsnt:recipe",
+  "description": "",
+  "dynamic": false,
+  "fields": [
+    {
+      "name": "preparation",
+      "selectorType": "Choicelist",
+      "valueConstraints": [
+        {
+          "value": {
+            "type": "String",
+            "value": "PT5M"
+          },
+          "displayValue": "5 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT10M"
+          },
+          "displayValue": "10 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT15M"
+          },
+          "displayValue": "15 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT20M"
+          },
+          "displayValue": "20 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT25M"
+          },
+          "displayValue": "25 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT30M"
+          },
+          "displayValue": "30 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT35M"
+          },
+          "displayValue": "35 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT40M"
+          },
+          "displayValue": "40 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT45M"
+          },
+          "displayValue": "45 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT50M"
+          },
+          "displayValue": "50 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT55M"
+          },
+          "displayValue": "55 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT60M"
+          },
+          "displayValue": "60 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT65M"
+          },
+          "displayValue": "65 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT70M"
+          },
+          "displayValue": "70 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT75M"
+          },
+          "displayValue": "75 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT80M"
+          },
+          "displayValue": "80 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT85M"
+          },
+          "displayValue": "85 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT90M"
+          },
+          "displayValue": "90 mins"
+        }
+      ]
+    },
+    {
+      "name": "cooking",
+      "selectorType": "Choicelist",
+      "valueConstraints": [
+        {
+          "value": {
+            "type": "String",
+            "value": "PT5M"
+          },
+          "displayValue": "5 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT10M"
+          },
+          "displayValue": "10 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT15M"
+          },
+          "displayValue": "15 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT20M"
+          },
+          "displayValue": "20 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT25M"
+          },
+          "displayValue": "25 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT30M"
+          },
+          "displayValue": "30 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT35M"
+          },
+          "displayValue": "35 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT40M"
+          },
+          "displayValue": "40 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT45M"
+          },
+          "displayValue": "45 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT50M"
+          },
+          "displayValue": "50 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT55M"
+          },
+          "displayValue": "55 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT60M"
+          },
+          "displayValue": "60 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT65M"
+          },
+          "displayValue": "65 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT70M"
+          },
+          "displayValue": "70 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT75M"
+          },
+          "displayValue": "75 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT80M"
+          },
+          "displayValue": "80 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT85M"
+          },
+          "displayValue": "85 mins"
+        },
+        {
+          "value": {
+            "type": "String",
+            "value": "PT90M"
+          },
+          "displayValue": "90 mins"
+        }
+      ]
+    },
+    {
+      "name": "difficulty",
+      "selectorType": "Choicelist",
+      "valueConstraints": [
+        { "value": { "type": "Long", "value": "1" }, "displayValue": "1" },
+        { "value": { "type": "Long", "value": "2" }, "displayValue": "2" },
+        { "value": { "type": "Long", "value": "3" }, "displayValue": "3" },
+        { "value": { "type": "Long", "value": "4" }, "displayValue": "4" },
+        { "value": { "type": "Long", "value": "5" }, "displayValue": "5" }
+      ]
+    },
+    {
+      "name": "serves",
+      "selectorType": "Choicelist",
+      "valueConstraints": [
+        { "value": { "type": "Long", "value": "1" }, "displayValue": "1" },
+        { "value": { "type": "Long", "value": "2" }, "displayValue": "2" },
+        { "value": { "type": "Long", "value": "3" }, "displayValue": "3" },
+        { "value": { "type": "Long", "value": "4" }, "displayValue": "4" },
+        { "value": { "type": "Long", "value": "5" }, "displayValue": "5" },
+        { "value": { "type": "Long", "value": "6" }, "displayValue": "6" },
+        { "value": { "type": "Long", "value": "7" }, "displayValue": "7" },
+        { "value": { "type": "Long", "value": "8" }, "displayValue": "8" },
+        { "value": { "type": "Long", "value": "9" }, "displayValue": "9" },
+        { "value": { "type": "Long", "value": "10" }, "displayValue": "10" },
+        { "value": { "type": "Long", "value": "11" }, "displayValue": "11" },
+        { "value": { "type": "Long", "value": "12" }, "displayValue": "12" }
+      ]
+    }
+  ]
+}
