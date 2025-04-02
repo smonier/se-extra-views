@@ -35,7 +35,7 @@
             <a href="${contentURL}" class="food-card_title">${title}</a>
         </div>
         <div class="food-card_author">
-            <ul class="list-group list-group-flush text-left ml-5 mt-5">
+            <ul class="list-group list-group-flush text-left ml-1 mt-5">
                 <li class="d-flex align-items-center"><i class="fas fa-chart-bar m-3"></i> <strong><fmt:message key='seaddonsnt_recipe.difficulty'/>:</strong>
                     <div class="ml-3">
                         <c:forEach begin="1" end="5" var="i">

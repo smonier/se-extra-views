@@ -31,7 +31,7 @@
     </div>
     <div class="food-card_content">
         <div class="food-card_title-section">
-            <a href="${contentURL}" class="food-card_title" style="font-size: 1rem;color: #E02923">${title}</a>
+            <a href="${contentURL}" class="food-card_title" style="font-size: 1.2rem;color: #E02923">${title}</a>
         </div>
         <div class="food-card_bottom-section">
                     <i class="fas fa-chart-bar m-3"></i>
