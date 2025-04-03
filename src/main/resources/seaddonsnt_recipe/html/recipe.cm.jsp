@@ -51,8 +51,8 @@
                     </div>
                 </li>
                 <li class="d-flex align-items-center"><i class="fas fa-users m-3"></i> <strong class="mr-3"><fmt:message key='seaddonsnt_recipe.serves'/>:</strong>   ${serves}</li>
-                <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3">Preparation Time:</strong> <fmt:message key='recipe.label.time.${preparation}'/></li>
-                <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3">Cooking Time:</strong> <fmt:message key='recipe.label.time.${cooking}'/> </li>
+                <li class="d-flex align-items-center"><i class="fas fa-clock m-3"></i> <strong class="mr-3"><fmt:message key='recipe.label.preparation'/>:</strong> <fmt:message key='recipe.label.time.${preparation}'/></li>
+                <li class="d-flex align-items-center"><i class="fas fa-hourglass-half m-3"></i> <strong class="mr-3"><fmt:message key='recipe.label.cooking'/>:</strong> <fmt:message key='recipe.label.time.${cooking}'/> </li>
             </ul>
         </div>
         <div class="food-card_bottom-section">
