@@ -1,0 +1,14 @@
+{
+  "name": "seaddonsmix:videoCarouselAdvancedSettings",
+  "description": "",
+  "dynamic": false,
+  "fields": [
+    {
+      "name": "options",
+      "selectorType": "CodeMirror",
+      "selectorOptionsMap": {
+        "mode": "javascript"
+      }
+    }
+  ]
+}

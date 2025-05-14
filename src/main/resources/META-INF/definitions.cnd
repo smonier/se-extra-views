@@ -13,7 +13,7 @@
  - startDate (date) facetable
  - endDate (date) facetable
  - location (string) i18n facetable
- - eventsType (string, choicelist[resourceBundle]) facetable indexed=no < gala,ceremony,seminary,party,retreat,meeting,consumerShow,roadShow,conference,show,pressConference
+ - eventsType (string, choicelist[resourceBundle]) facetable indexed=no < gala,ceremony,seminary,party,retreat,meeting,consumerShow,roadShow,conference,show,pressConference,webinar
  - teaser (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
  - body (string, richtext[ckeditor.toolbar='Tinny',ckeditor.customConfig='$context/modules/industrial/javascript/ckeditor/config/body.js']) internationalized
  - image (weakreference, picker[type='image']) < 'jmix:image'
@@ -154,3 +154,36 @@
 
  [seaddonsnt:fullWidthBanner] > jnt:content, seaddonsmix:seUtilsEditorialComponents, seumix:linkTo, mix:title
    - backgroundImg (weakreference, picker[type='image'])  < 'jmix:image'
+
+
+[seaddonsmix:videoCarouselAdvancedSettings] mixin
+ extends = seaddonsnt:videoCarousel
+ itemtype = content
+ - options (string, textarea[height='360']) indexed=no
+ - class (string) indexed=no
+
+[seaddonsnt:videoCarousel] > jnt:content, seaddonsmix:seUtilsEditorialComponents, jmix:list, jmix:siteContent orderable
+ + * (seaddonsnt:videoCarouselItem)
+
+[seaddonsnt:videoCarouselItem] > jnt:content, mix:title
+ - video (weakreference, picker[type='file']) mandatory
+ - caption (string, richtext[ckeditor.customConfig='$context/modules/industrial-templates/javascript/ckeditor/config/default.js']) internationalized
+
+[seaddonsnt:jobPosting] > jnt:content, jmix:structuredContent, mix:title, jmix:editorialContent, seaddonsmix:seUtilsEditorialComponents
+- description (string, richtext[ckeditor.customConfig='$context/modules/selencia/javascript/ckeditor/config/job.js']) i18n mandatory
+- jobId (string) mandatory
+- employmentType (string,choicelist[resourceBundle]) < 'FULL_TIME','PART_TIME','CONTRACTOR','TEMPORARY','INTERN','FREELANCE','OTHER'
+- datePosted (date) mandatory
+- validThrough (date)
+- hiringOrganization (string)
+- organizationUrl (string)
+- logo (weakreference, picker[type='image']) < jmix:image
+- locationAddress (string) mandatory
+- locationPostalCode (string)
+- locationCity (string)
+- locationCountry (string)
+- baseSalary (decimal)
+- salaryCurrency (string,choicelist[resourceBundle]) < 'EUR', 'USD', 'GBP'
+- salaryUnit (string,choicelist[resourceBundle]) < 'YEAR','MONTH','HOUR'
+- contactEmail (string)
+- contactPhone (string)
