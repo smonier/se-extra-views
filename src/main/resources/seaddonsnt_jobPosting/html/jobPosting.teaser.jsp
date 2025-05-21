@@ -36,6 +36,7 @@
 <c:set var="contactEmail" value="${currentNode.properties['contactEmail'].string}"/>
 <c:set var="contactPhone" value="${currentNode.properties['contactPhone'].string}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+<c:url value="${currentNode.url}" var="contentURL"/>
 
 <c:set var="defaultCategory" value="${currentNode.properties['j:defaultCategory']}"/>
 <c:set var="keywords" value="${currentNode.properties['j:keywords']}"/>
@@ -80,7 +81,7 @@
 
 			<c:if test="${not empty baseSalary}">
 				<p class="mb-1 small text-dark">
-					💰 ${baseSalary}
+					${baseSalary}
 					<fmt:message key="seaddonsnt_jobPosting.salaryCurrency.${salaryCurrency}" /> /
 					<fmt:message key="seaddonsnt_jobPosting.salaryUnit.${salaryUnit}" />
 				</p>
@@ -88,12 +89,12 @@
 
 			<c:if test="${not empty validThrough}">
 				<p class="mb-3 small text-muted">
-					📅 <fmt:message key="seaddonsnt_jobPosting.label.closingReminder" /> :
+					<fmt:message key="seaddonsnt_jobPosting.label.closingReminder" /> :
 					<fmt:formatDate value="${validThrough.time}" pattern="dd/MM/yyyy" />
 				</p>
 			</c:if>
 
-			<a href="<c:url value='${url.base}${currentNode.path}.html'/>" class="btn btn-outline-primary mt-auto">
+			<a href="<c:url value='${contentURL}'/>" class="btn btn-outline-primary mt-auto">
 				<fmt:message key="seaddonsnt_jobPosting.label.seeOffer" />
 			</a>
 		</div>

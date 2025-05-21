@@ -169,7 +169,7 @@
  - video (weakreference, picker[type='file']) mandatory
  - caption (string, richtext[ckeditor.customConfig='$context/modules/industrial-templates/javascript/ckeditor/config/default.js']) internationalized
 
-[seaddonsnt:jobPosting] > jnt:content, jmix:structuredContent, mix:title, jmix:editorialContent, seaddonsmix:seUtilsEditorialComponents
+[seaddonsnt:jobPosting] > jnt:content, jmix:structuredContent, mix:title, jmix:editorialContent, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents
 - description (string, richtext[ckeditor.customConfig='$context/modules/selencia/javascript/ckeditor/config/job.js']) i18n mandatory
 - jobId (string) mandatory
 - employmentType (string,choicelist[resourceBundle]) < 'FULL_TIME','PART_TIME','CONTRACTOR','TEMPORARY','INTERN','FREELANCE','OTHER'
@@ -187,3 +187,9 @@
 - salaryUnit (string,choicelist[resourceBundle]) < 'YEAR','MONTH','HOUR'
 - contactEmail (string)
 - contactPhone (string)
+
+[seaddonsnt:statBlock] > jnt:content, mix:title
+ - number (long)
+
+[seaddonsnt:statBanner] > jnt:content, mix:title, jmix:mainResource, seaddonsmix:seUtilsEditorialComponents, jmix:list, jmix:siteContent orderable
+ + * (seaddonsnt:statBlock)
